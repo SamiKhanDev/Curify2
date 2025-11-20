@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".payment.EasyPaisaPaymentDetails">
+
+    <ImageView
+        android:id="@+id/nothingep"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="105dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="106dp"
+        android:src="@drawable/easypaisa"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="56dp"
+        android:text="Enter your EasyPaisa Details"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/nothingep"
+        app:layout_constraintStart_toStartOf="@id/nothingep"
+        app:layout_constraintTop_toBottomOf="@+id/nothingep" />
+
+    <EditText
+        android:id="@+id/holdernameep"
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/edit_text_rounded"
+        android:backgroundTint="#F8F4F4"
+
+        android:drawablePadding="10dp"
+        android:elevation="10dp"
+        android:hint="Enter Account Holder Name"
+        android:padding="12dp"
+        android:textColor="#000000"
+        android:textColorHint="#888888"
+        app:layout_constraintEnd_toEndOf="@+id/textView16"
+        app:layout_constraintStart_toStartOf="@+id/textView16"
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+    <EditText
+        android:id="@+id/holderphonenumberep"
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/edit_text_rounded"
+        android:backgroundTint="#F8F4F4"
+
+        android:drawablePadding="10dp"
+        android:elevation="10dp"
+        android:hint="Enter Account Holder Number"
+        android:padding="12dp"
+        android:textColor="#000000"
+        android:textColorHint="#888888"
+        app:layout_constraintEnd_toEndOf="@+id/holdernameep"
+        app:layout_constraintStart_toStartOf="@+id/holdernameep"
+        app:layout_constraintTop_toBottomOf="@+id/holdernameep" />
+    <Button
+        android:id="@+id/addbtnep"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="70dp"
+        android:backgroundTint="#199A8E"
+        android:text="Add Account"
+        android:textColorLink="#199A8E"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/holderphonenumberep"
+        app:layout_constraintStart_toStartOf="@+id/holderphonenumberep"
+        app:layout_constraintTop_toBottomOf="@+id/holderphonenumberep"
+        app:strokeColor="#199A8E" />
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="e.g 92XXXXXXXXXX"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/holderphonenumberep"
+        app:layout_constraintTop_toBottomOf="@+id/holderphonenumberep" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

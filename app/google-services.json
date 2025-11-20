@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "518682575218",
+    "project_id": "curify-bd38d",
+    "storage_bucket": "curify-bd38d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:518682575218:android:0b503f43cf5f81b218ddeb",
+        "android_client_info": {
+          "package_name": "com.adeel.curify"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZ9J3Lnj7Mj0-uGgNZOiXb27BEjG_TWu0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:518682575218:android:f0797aa4c9a996e318ddeb",
+        "android_client_info": {
+          "package_name": "com.saim.curify"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZ9J3Lnj7Mj0-uGgNZOiXb27BEjG_TWu0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

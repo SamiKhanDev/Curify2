@@ -1,0 +1,28 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Base.Theme.Curify" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowBackground">@color/background</item>
+        <!-- Material3 color overrides -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorOnPrimary">@color/on_primary</item>
+        <item name="colorPrimaryContainer">@color/primary_container</item>
+        <item name="colorOnPrimaryContainer">@color/on_primary_container</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/on_surface</item>
+        <item name="colorSecondary">@color/secondary</item>
+        <item name="colorOnSecondary">@color/on_secondary</item>
+        <item name="android:navigationBarColor">@color/surface</item>
+    </style>
+
+    <style name="Theme.Curify" parent="Base.Theme.Curify" />
+
+    <!-- Splash theme (Android 12+: system splash; Pre-12: custom window background) -->
+    <style name="Theme.Curify.Splash" parent="Theme.SplashScreen">
+        <!-- Android 12+ attributes -->
+        <item name="windowSplashScreenBackground">@color/primary</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/logo_curify</item>
+        <item name="postSplashScreenTheme">@style/Theme.Curify</item>
+        <!-- Pre-Android 12 fallback -->
+        <item name="android:windowBackground">@drawable/splash_screen</item>
+    </style>
+</resources>

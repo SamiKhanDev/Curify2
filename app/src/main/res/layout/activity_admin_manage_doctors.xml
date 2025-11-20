@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#738276">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Manage Doctors"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:layout_gravity="center_horizontal" />
+
+        <!-- Doctor Image -->
+        <ImageView
+            android:id="@+id/imgDoctor"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/ic_launcher_background"
+            android:background="#222222"
+            android:padding="10dp"
+            android:layout_marginTop="20dp" />
+
+        <Button
+            android:id="@+id/btnSelectImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Photo"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"/>
+
+        <EditText
+            android:id="@+id/etName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Doctor Name"
+            android:textColor="#FFFFFF"
+            android:background="#1A1A1D"
+            android:padding="12dp"
+            android:textColorHint="#888888"
+            android:layout_marginTop="20dp"/>
+
+        <EditText
+            android:id="@+id/etAge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Age"
+            android:inputType="number"
+            android:textColor="#FFFFFF"
+            android:background="#1A1A1D"
+            android:padding="12dp"
+            android:textColorHint="#888888"
+            android:layout_marginTop="10dp"/>
+
+        <EditText
+            android:id="@+id/etGender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Gender (Male / Female)"
+            android:textColor="#FFFFFF"
+            android:background="#1A1A1D"
+            android:padding="12dp"
+            android:textColorHint="#888888"
+            android:layout_marginTop="10dp"/>
+
+        <EditText
+            android:id="@+id/etQualification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Qualification (MBBS, FCPS...)"
+            android:textColor="#FFFFFF"
+            android:background="#1A1A1D"
+            android:padding="12dp"
+            android:textColorHint="#888888"
+            android:layout_marginTop="10dp"/>
+
+        <EditText
+            android:id="@+id/etSpecialization"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Specialization (Cardiologist...)"
+            android:textColor="#FFFFFF"
+            android:background="#1A1A1D"
+            android:padding="12dp"
+            android:textColorHint="#888888"
+            android:layout_marginTop="10dp"/>
+
+        <EditText
+            android:id="@+id/etStartTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Available From"
+            android:textColor="#FFFFFF"
+            android:background="#1A1A1D"
+            android:padding="12dp"
+            android:textColorHint="#888888"
+            android:layout_marginTop="10dp"/>
+
+        <EditText
+            android:id="@+id/etEndTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Available Until"
+            android:textColor="#FFFFFF"
+            android:background="#1A1A1D"
+            android:padding="12dp"
+            android:textColorHint="#888888"
+            android:layout_marginTop="10dp"/>
+
+        <!-- New Fields for Hospital and Fee -->
+        <EditText
+            android:id="@+id/etHospital"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Hospital Name"
+            android:textColor="#FFFFFF"
+            android:background="#1A1A1D"
+            android:padding="12dp"
+            android:textColorHint="#888888"
+            android:layout_marginTop="10dp"/>
+
+        <EditText
+            android:id="@+id/etFee"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Consultation Fee"
+            android:inputType="numberDecimal"
+            android:textColor="#FFFFFF"
+            android:background="#1A1A1D"
+            android:padding="12dp"
+            android:textColorHint="#888888"
+            android:layout_marginTop="10dp"/>
+
+        <Button
+            android:id="@+id/btnAddDoctor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Doctor"
+            android:background="#1F8A70"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="20dp"/>
+
+    </LinearLayout>
+</ScrollView>

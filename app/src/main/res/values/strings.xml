@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Curify</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- Cloudinary config: set these in local project (do not commit real values) -->
+<!--    <string name="cloudinary_cloud_name">your_cloud_name</string>-->
+<!--    <string name="cloudinary_unsigned_preset">your_unsigned_preset</string>-->
+
+
+    <string name="cloudinary_cloud_name">dhxdgiuxt</string>
+    <string name="cloudinary_unsigned_preset">ml_default</string>
+
+
+    <string name="chat">Chat</string>
+</resources>

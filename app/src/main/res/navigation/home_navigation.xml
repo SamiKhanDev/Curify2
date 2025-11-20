@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/home_navigation"
+    app:startDestination="@id/item_home">
+
+    <fragment
+        android:id="@+id/item_medicine"
+        android:name="com.saim.curify.medicine.MedicineFragment"
+        android:label="MedicineFragment" />
+    <fragment
+        android:id="@+id/item_doctors"
+        android:name="com.saim.curify.doctor.DoctorsFragment"
+        android:label="DoctorFragment" />
+    <fragment
+        android:id="@+id/item_profile"
+        android:name="com.saim.curify.profile.ProfileFragment"
+        android:label="ProfileFragment" />
+    <fragment
+        android:id="@+id/item_prescriptions"
+        android:name="com.saim.curify.medicine.prescription.PrescriptionsFragment"
+        android:label="Prescriptions" />
+    <fragment
+        android:id="@+id/item_home"
+        android:name="com.saim.curify.home.HomeFragment"
+        android:label="HomeFragment" />
+    <fragment
+        android:id="@+id/item_chat"
+        android:name="com.saim.curify.chat.ChatFragment"
+        android:label="ChatFragment" />
+</navigation>

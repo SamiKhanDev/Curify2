@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.saim.MedicalStoreModule.AddMedicine">
+
+    <ImageView
+        android:id="@+id/medicon"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="131dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/add" />
+
+    <EditText
+        android:id="@+id/medname"
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/edit_text_rounded"
+        android:backgroundTint="#F8F4F4"
+        android:drawablePadding="10dp"
+        android:elevation="10dp"
+        android:hint="Medicine Name"
+        android:padding="12dp"
+        android:textColor="#000000"
+        android:textColorHint="#888888"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/medicon" />
+
+    <EditText
+        android:id="@+id/medweight"
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/edit_text_rounded"
+        android:backgroundTint="#F8F4F4"
+
+        android:drawablePadding="10dp"
+        android:elevation="10dp"
+        android:hint="Medicine Weight"
+        android:padding="12dp"
+        android:textColor="#000000"
+        android:textColorHint="#888888"
+        app:layout_constraintEnd_toEndOf="@+id/medname"
+        app:layout_constraintStart_toStartOf="@+id/medname"
+        app:layout_constraintTop_toBottomOf="@+id/medname" />
+
+    <EditText
+        android:id="@+id/meddesc"
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/edit_text_rounded"
+        android:backgroundTint="#F8F4F4"
+
+        android:drawablePadding="10dp"
+        android:elevation="10dp"
+        android:hint="Medicine Description"
+        android:padding="12dp"
+        android:textColor="#000000"
+        android:textColorHint="#888888"
+        app:layout_constraintEnd_toEndOf="@+id/medweight"
+        app:layout_constraintStart_toStartOf="@+id/medweight"
+        app:layout_constraintTop_toBottomOf="@+id/medweight" />
+
+    <EditText
+        android:id="@+id/medprice"
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/edit_text_rounded"
+        android:backgroundTint="#F8F4F4"
+
+        android:drawablePadding="10dp"
+        android:elevation="10dp"
+        android:hint="Medicine Price"
+        android:padding="12dp"
+        android:textColor="#000000"
+        android:textColorHint="#888888"
+        app:layout_constraintEnd_toEndOf="@+id/meddesc"
+        app:layout_constraintStart_toStartOf="@+id/meddesc"
+        app:layout_constraintTop_toBottomOf="@+id/meddesc" />
+
+    <EditText
+        android:id="@+id/medquantity"
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/edit_text_rounded"
+        android:backgroundTint="#F8F4F4"
+
+        android:drawablePadding="10dp"
+        android:elevation="10dp"
+        android:hint="Medicine Quantity"
+        android:padding="12dp"
+        android:textColor="#000000"
+        android:textColorHint="#888888"
+        app:layout_constraintEnd_toEndOf="@+id/medprice"
+        app:layout_constraintStart_toStartOf="@+id/medprice"
+        app:layout_constraintTop_toBottomOf="@+id/medprice" />
+
+    <RadioGroup
+        android:id="@+id/medicineTypeRadioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@+id/medquantity"
+        app:layout_constraintStart_toStartOf="@+id/medquantity"
+        app:layout_constraintTop_toBottomOf="@+id/medquantity">
+
+        <RadioButton
+            android:id="@+id/rbTablet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tablet" />
+
+        <RadioButton
+            android:id="@+id/rbSyrup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Syrup" />
+
+        <RadioButton
+            android:id="@+id/rbCapsule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Capsule" />
+
+        <RadioButton
+            android:id="@+id/rbInjection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Injection" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/addmed"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#0D9AB6"
+        android:text="Add"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/medquantity"
+        app:layout_constraintStart_toStartOf="@+id/medquantity"
+        app:layout_constraintTop_toBottomOf="@+id/medicineTypeRadioGroup" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
