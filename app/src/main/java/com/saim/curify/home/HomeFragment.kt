@@ -10,6 +10,9 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import android.widget.Toast
+import androidx.fragment.app.viewModels
+import com.google.android.material.snackbar.Snackbar
 import com.saim.adapters.GenericListAdapter
 import com.saim.curify.MainActivity
 import com.saim.curify.medicine.MedicineFragmentViewModel
@@ -17,12 +20,17 @@ import com.saim.curify.R
 import com.saim.curify.databinding.FragmentHomeBinding
 import com.saim.curify.databinding.ItemMedicineBinding
 import com.saim.domain.entities.Drugs
+import com.saim.domain.entities.MyCartData
+import com.saim.MedicalStoreModule.MyCartViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
     lateinit var binding: FragmentHomeBinding
     private lateinit var adapter: GenericListAdapter<Drugs, ItemMedicineBinding>
     private val allMedicines = ArrayList<Drugs>()
+    private val cartViewModel: MyCartViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -60,6 +68,39 @@ class HomeFragment : Fragment() {
                     .error(com.saim.curify.R.drawable.logo_curify)
                     .placeholder(com.saim.curify.R.drawable.logo_curify)
                     .into(b.productImage)
+                
+                // Add to cart button click listener
+                b.addButton.setOnClickListener { view ->
+                    view.isClickable = false // Prevent multiple clicks
+                    val user = com.google.firebase.auth.FirebaseAuth.getInstance().currentUser
+                    if (user == null) {
+                        Toast.makeText(b.root.context, "Please login to add items to cart", Toast.LENGTH_SHORT).show()
+                        view.isClickable = true
+                        return@setOnClickListener
+                    }
+                    
+                    // Check if medicine is in stock (case-insensitive check)
+                    val status = medicine.status?.trim() ?: ""
+                    if (status.equals("In Stock", ignoreCase = true).not()) {
+                        Toast.makeText(b.root.context, "Medicine is out of stock", Toast.LENGTH_SHORT).show()
+                        view.isClickable = true
+                        return@setOnClickListener
+                    }
+                    
+                    val mycart = MyCartData()
+                    mycart.title = medicine.title
+                    mycart.price = medicine.price
+                    mycart.quantity = "1"
+                    mycart.weight = medicine.weight
+                    mycart.image = medicine.image
+                    
+                    val uid = user.uid
+                    cartViewModel.savemycart(uid, mycart)
+                    
+                    Snackbar.make(binding.root, "${medicine.title} added to cart", Snackbar.LENGTH_SHORT).show()
+                    view.isClickable = true
+                }
+                
                 b.root.setOnClickListener {
                     b.root.context.startActivity(
                         android.content.Intent(
@@ -89,6 +130,25 @@ class HomeFragment : Fragment() {
                         adapter.submitList(it.take(10))
                         binding.emptyState.visibility = if (it.isEmpty()) View.VISIBLE else View.GONE
                     }
+                }
+            }
+        }
+        
+        // Handle cart add success/error
+        viewLifecycleOwner.lifecycleScope.launch {
+            cartViewModel.isSuccessfullySaved.collect { success ->
+                success?.let {
+                    if (it) {
+                        // Item added successfully (Snackbar already shown in click listener)
+                    }
+                }
+            }
+        }
+        
+        viewLifecycleOwner.lifecycleScope.launch {
+            cartViewModel.failureMessage.collect { error ->
+                error?.let {
+                    Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
                 }
             }
         }
