@@ -1,32 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Design System Colors -->
+    <!-- Brand Colors -->
     <color name="primary">#0B84FF</color>
     <color name="primary_variant">#0066CC</color>
     <color name="success">#00A676</color>
-    <color name="background">#F7F9FB</color>
-    <color name="surface">#FFFFFF</color>
+    <color name="warning">#FFB020</color>
+    <color name="error">#E53935</color>
     
-    <!-- Semantic Colors -->
-    <color name="on_primary">#FFFFFF</color>
-    <color name="on_surface">#1A1A1A</color>
-    <color name="on_background">#1A1A1A</color>
-    <color name="on_success">#FFFFFF</color>
-    <color name="primary_container">#E3F2FD</color>
+    <!-- Light Mode Background & Surface -->
+    <color name="background_light">#F7F9FB</color>
+    <color name="surface_light">#FFFFFF</color>
+    <color name="surface_variant_light">#F1F3F5</color>
     
-    <!-- Additional Colors -->
-    <color name="error">#EF4444</color>
-    <color name="warning">#F59E0B</color>
-    <color name="text_primary">#1A1A1A</color>
-    <color name="text_secondary">#6B7280</color>
-    <color name="text_hint">#9CA3AF</color>
-    <color name="divider">#E5E7EB</color>
-    <color name="outline">#D1D5DB</color>
+    <!-- Light Mode Text Colors -->
+    <color name="text_primary_light">#1A1A1A</color>
+    <color name="text_secondary_light">#6B7280</color>
+    <color name="text_hint_light">#9CA3AF</color>
+    <color name="text_disabled_light">#D1D5DB</color>
     
-    <!-- Legacy colors for backward compatibility -->
+    <!-- Light Mode Semantic Colors -->
+    <color name="on_primary_light">#FFFFFF</color>
+    <color name="on_primary_container_light">#001D35</color>
+    <color name="on_surface_light">#1A1A1A</color>
+    <color name="on_surface_variant_light">#6B7280</color>
+    <color name="on_background_light">#1A1A1A</color>
+    <color name="on_success_light">#FFFFFF</color>
+    <color name="on_error_light">#FFFFFF</color>
+    <color name="on_warning_light">#1A1A1A</color>
+    
+    <!-- Light Mode Container Colors -->
+    <color name="primary_container_light">#D6E7FF</color>
+    <color name="error_container_light">#FFDAD6</color>
+    <color name="success_container_light">#D4F4E8</color>
+    <color name="warning_container_light">#FFF4E6</color>
+    
+    <!-- Light Mode UI Elements -->
+    <color name="divider_light">#E5E7EB</color>
+    <color name="outline_light">#D1D5DB</color>
+    <color name="outline_variant_light">#E5E7EB</color>
+    <color name="scrim_light">#000000</color>
+    
+    <!-- Legacy/Compatibility Colors -->
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
     <color name="green">#00A676</color>
     <color name="silver">#9CA3AF</color>
     <color name="lightgreen">#ADDBD6</color>
+    
+    <!-- Backward Compatibility Aliases (for existing layouts) -->
+    <color name="text_primary">@color/text_primary_light</color>
+    <color name="text_secondary">@color/text_secondary_light</color>
+    <color name="text_hint">@color/text_hint_light</color>
+    <color name="divider">@color/divider_light</color>
+    <color name="primary_container">@color/primary_container_light</color>
+    <color name="background">@color/background_light</color>
+    <color name="surface">@color/surface_light</color>
+    <color name="on_primary">@color/on_primary_light</color>
+    <color name="on_surface">@color/on_surface_light</color>
+    <color name="on_background">@color/on_background_light</color>
+    
+    <!-- Material 3 Theme Attributes (Light Mode) -->
+    <color name="md_theme_light_primary">@color/primary</color>
+    <color name="md_theme_light_onPrimary">@color/on_primary_light</color>
+    <color name="md_theme_light_primaryContainer">@color/primary_container_light</color>
+    <color name="md_theme_light_onPrimaryContainer">@color/on_primary_container_light</color>
+    <color name="md_theme_light_secondary">@color/primary_variant</color>
+    <color name="md_theme_light_onSecondary">@color/on_primary_light</color>
+    <color name="md_theme_light_secondaryContainer">@color/primary_container_light</color>
+    <color name="md_theme_light_onSecondaryContainer">@color/on_primary_container_light</color>
+    <color name="md_theme_light_tertiary">@color/success</color>
+    <color name="md_theme_light_onTertiary">@color/on_success_light</color>
+    <color name="md_theme_light_tertiaryContainer">@color/success_container_light</color>
+    <color name="md_theme_light_onTertiaryContainer">#002114</color>
+    <color name="md_theme_light_error">@color/error</color>
+    <color name="md_theme_light_errorContainer">@color/error_container_light</color>
+    <color name="md_theme_light_onError">@color/on_error_light</color>
+    <color name="md_theme_light_onErrorContainer">#410002</color>
+    <color name="md_theme_light_background">@color/background_light</color>
+    <color name="md_theme_light_onBackground">@color/on_background_light</color>
+    <color name="md_theme_light_surface">@color/surface_light</color>
+    <color name="md_theme_light_onSurface">@color/on_surface_light</color>
+    <color name="md_theme_light_surfaceVariant">@color/surface_variant_light</color>
+    <color name="md_theme_light_onSurfaceVariant">@color/on_surface_variant_light</color>
+    <color name="md_theme_light_outline">@color/outline_light</color>
+    <color name="md_theme_light_outlineVariant">@color/outline_variant_light</color>
+    <color name="md_theme_light_shadow">@color/black</color>
+    <color name="md_theme_light_scrim">@color/scrim_light</color>
+    <color name="md_theme_light_inverseSurface">#2F3133</color>
+    <color name="md_theme_light_inverseOnSurface">#F1F3F5</color>
+    <color name="md_theme_light_inversePrimary">#0066CC</color>
+    <color name="md_theme_light_surfaceTint">@color/primary</color>
 </resources>

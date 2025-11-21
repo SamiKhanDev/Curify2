@@ -86,6 +86,15 @@
     <string name="book_appointment">Book Appointment</string>
     <string name="select_time_slot">Select Time Slot</string>
     <string name="appointments">Appointments</string>
+    <string name="my_appointments">My Appointments</string>
+    <string name="no_appointments">No appointments found</string>
+    <string name="cancel_appointment">Cancel Appointment</string>
+    <string name="date">Date</string>
+    <string name="time">Time</string>
+    <string name="fee">Fee</string>
+    <string name="appointment_booked">Appointment booked successfully</string>
+    <string name="appointment_cancelled">Appointment cancelled</string>
+    <string name="select_date">Select Date</string>
     
     <!-- Chat -->
     <string name="chat">Chat</string>

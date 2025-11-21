@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Brand Colors (same in dark mode, but may need slight adjustment) -->
+    <color name="primary">#4DA3FF</color> <!-- Lighter for better visibility on dark -->
+    <color name="primary_variant">#0066CC</color>
+    <color name="success">#4DD4A6</color> <!-- Lighter for dark mode -->
+    <color name="warning">#FFC947</color> <!-- Lighter for dark mode -->
+    <color name="error">#FF6B6B</color> <!-- Lighter for dark mode -->
+    
+    <!-- Dark Mode Background & Surface -->
+    <color name="background_dark">#0D0D0D</color>
+    <color name="surface_dark">#1A1A1A</color>
+    <color name="surface_variant_dark">#2F3133</color>
+    
+    <!-- Dark Mode Text Colors (High Contrast) -->
+    <color name="text_primary_dark">#FFFFFF</color>
+    <color name="text_secondary_dark">#B0B0B0</color>
+    <color name="text_hint_dark">#808080</color>
+    <color name="text_disabled_dark">#4D4D4D</color>
+    
+    <!-- Dark Mode Semantic Colors -->
+    <color name="on_primary_dark">#001D35</color>
+    <color name="on_primary_container_dark">#D6E7FF</color>
+    <color name="on_surface_dark">#EDEDED</color>
+    <color name="on_surface_variant_dark">#B0B0B0</color>
+    <color name="on_background_dark">#EDEDED</color>
+    <color name="on_success_dark">#002114</color>
+    <color name="on_error_dark">#410002</color>
+    <color name="on_warning_dark">#1A1A1A</color>
+    
+    <!-- Dark Mode Container Colors -->
+    <color name="primary_container_dark">#003258</color>
+    <color name="error_container_dark">#93000A</color>
+    <color name="success_container_dark">#003D28</color>
+    <color name="warning_container_dark">#664400</color>
+    
+    <!-- Dark Mode UI Elements -->
+    <color name="divider_dark">#3A3A3A</color>
+    <color name="outline_dark">#4D4D4D</color>
+    <color name="outline_variant_dark">#3A3A3A</color>
+    <color name="scrim_dark">#000000</color>
+    
+    <!-- Material 3 Theme Attributes (Dark Mode) -->
+    <color name="md_theme_dark_primary">@color/primary</color>
+    <color name="md_theme_dark_onPrimary">@color/on_primary_dark</color>
+    <color name="md_theme_dark_primaryContainer">@color/primary_container_dark</color>
+    <color name="md_theme_dark_onPrimaryContainer">@color/on_primary_container_dark</color>
+    <color name="md_theme_dark_secondary">#7FC8FF</color>
+    <color name="md_theme_dark_onSecondary">#003258</color>
+    <color name="md_theme_dark_secondaryContainer">@color/primary_container_dark</color>
+    <color name="md_theme_dark_onSecondaryContainer">@color/on_primary_container_dark</color>
+    <color name="md_theme_dark_tertiary">@color/success</color>
+    <color name="md_theme_dark_onTertiary">#003D28</color>
+    <color name="md_theme_dark_tertiaryContainer">@color/success_container_dark</color>
+    <color name="md_theme_dark_onTertiaryContainer">#4DD4A6</color>
+    <color name="md_theme_dark_error">@color/error</color>
+    <color name="md_theme_dark_errorContainer">@color/error_container_dark</color>
+    <color name="md_theme_dark_onError">@color/on_error_dark</color>
+    <color name="md_theme_dark_onErrorContainer">#FFDAD6</color>
+    <color name="md_theme_dark_background">@color/background_dark</color>
+    <color name="md_theme_dark_onBackground">@color/on_background_dark</color>
+    <color name="md_theme_dark_surface">@color/surface_dark</color>
+    <color name="md_theme_dark_onSurface">@color/on_surface_dark</color>
+    <color name="md_theme_dark_surfaceVariant">@color/surface_variant_dark</color>
+    <color name="md_theme_dark_onSurfaceVariant">@color/on_surface_variant_dark</color>
+    <color name="md_theme_dark_outline">@color/outline_dark</color>
+    <color name="md_theme_dark_outlineVariant">@color/outline_variant_dark</color>
+    <color name="md_theme_dark_shadow">@color/black</color>
+    <color name="md_theme_dark_scrim">@color/scrim_dark</color>
+    <color name="md_theme_dark_inverseSurface">#F1F3F5</color>
+    <color name="md_theme_dark_inverseOnSurface">#2F3133</color>
+    <color name="md_theme_dark_inversePrimary">#0066CC</color>
+    <color name="md_theme_dark_surfaceTint">@color/primary</color>
+    
+    <!-- Backward Compatibility Aliases (for existing layouts - Dark Mode) -->
+    <color name="text_primary">@color/text_primary_dark</color>
+    <color name="text_secondary">@color/text_secondary_dark</color>
+    <color name="text_hint">@color/text_hint_dark</color>
+    <color name="divider">@color/divider_dark</color>
+    <color name="primary_container">@color/primary_container_dark</color>
+    <color name="background">@color/background_dark</color>
+    <color name="surface">@color/surface_dark</color>
+    <color name="on_primary">@color/on_primary_dark</color>
+    <color name="on_surface">@color/on_surface_dark</color>
+    <color name="on_background">@color/on_background_dark</color>
+</resources>
+

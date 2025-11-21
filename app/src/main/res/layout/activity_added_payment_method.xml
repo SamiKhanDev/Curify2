@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:title="@string/payment_method"
-            app:titleTextColor="@color/text_primary" />
+            app:titleTextColor="?attr/colorOnSurface" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
@@ -46,7 +46,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/account_holder_name"
                         android:textAppearance="@style/TextAppearance.Material3.BodySmall"
-                        android:textColor="@color/text_secondary" />
+                        android:textColor="?attr/colorOnSurfaceVariant" />
 
                     <TextView
                         android:id="@+id/name"
@@ -55,20 +55,20 @@
                         android:layout_marginTop="@dimen/spacing_tiny"
                         android:text="Name"
                         android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
-                        android:textColor="@color/text_primary" />
+                        android:textColor="?attr/colorOnSurface" />
 
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:layout_marginVertical="@dimen/spacing_medium"
-                        android:background="@color/divider" />
+                        android:background="?attr/colorOutlineVariant" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/account_holder_number"
                         android:textAppearance="@style/TextAppearance.Material3.BodySmall"
-                        android:textColor="@color/text_secondary" />
+                        android:textColor="?attr/colorOnSurfaceVariant" />
 
                     <TextView
                         android:id="@+id/number"
@@ -77,20 +77,20 @@
                         android:layout_marginTop="@dimen/spacing_tiny"
                         android:text="Number"
                         android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
-                        android:textColor="@color/text_primary" />
+                        android:textColor="?attr/colorOnSurface" />
 
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:layout_marginVertical="@dimen/spacing_medium"
-                        android:background="@color/divider" />
+                        android:background="?attr/colorOutlineVariant" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/payment_method"
                         android:textAppearance="@style/TextAppearance.Material3.BodySmall"
-                        android:textColor="@color/text_secondary" />
+                        android:textColor="?attr/colorOnSurfaceVariant" />
 
                     <TextView
                         android:id="@+id/method"
@@ -99,7 +99,7 @@
                         android:layout_marginTop="@dimen/spacing_tiny"
                         android:text="Method"
                         android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
-                        android:textColor="@color/text_primary" />
+                        android:textColor="?attr/colorOnSurface" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
         </LinearLayout>

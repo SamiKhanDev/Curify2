@@ -55,6 +55,10 @@ binding.paymentmethodbtn.setOnClickListener{
             findNavController().navigate(R.id.item_prescriptions)
         }
 
+        binding.checkappointmentbtn.setOnClickListener {
+            findNavController().navigate(R.id.item_appointments)
+        }
+
         binding.logoutbtn.setOnClickListener{
 
             viewModel.logout(true)

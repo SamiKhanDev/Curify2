@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+    EXAMPLE: Proper Theme Attribute Usage
+    This file demonstrates how to use theme attributes instead of hardcoded colors.
+    Copy these patterns to your actual layout files.
+-->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:attr/colorBackground"
+    tools:context=".ExampleActivity">
+
+    <!-- 
+        EXAMPLE 1: TextView with Theme Attributes
+        ✅ CORRECT: Uses ?attr/colorOnBackground for text color
+        ❌ WRONG: android:textColor="@color/text_primary" (hardcoded)
+    -->
+    <TextView
+        android:id="@+id/exampleTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Example Title"
+        android:textAppearance="?attr/textAppearanceHeadline2"
+        android:textColor="?attr/colorOnBackground"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_marginStart="16dp"
+        tools:layout_marginTop="16dp" />
+
+    <TextView
+        android:id="@+id/exampleSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Example subtitle text"
+        android:textAppearance="?attr/textAppearanceBody2"
+        android:textColor="?attr/colorOnSurfaceVariant"
+        app:layout_constraintStart_toStartOf="@id/exampleTitle"
+        app:layout_constraintTop_toBottomOf="@id/exampleTitle"
+        tools:layout_marginTop="8dp" />
+
+    <!-- 
+        EXAMPLE 2: MaterialButton with Theme Attributes
+        ✅ CORRECT: Uses theme style and attributes
+        ❌ WRONG: android:backgroundTint="@color/primary" (hardcoded)
+    -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/exampleButton"
+        style="@style/Widget.Curify.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Primary Button"
+        android:textColor="?attr/colorOnPrimary"
+        app:backgroundTint="?attr/colorPrimary"
+        app:layout_constraintStart_toStartOf="@id/exampleTitle"
+        app:layout_constraintTop_toBottomOf="@id/exampleSubtitle"
+        tools:layout_marginTop="16dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/exampleOutlinedButton"
+        style="@style/Widget.Curify.Button.Outlined"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Outlined Button"
+        android:textColor="?attr/colorPrimary"
+        app:strokeColor="?attr/colorOutline"
+        app:layout_constraintStart_toEndOf="@id/exampleButton"
+        app:layout_constraintTop_toTopOf="@id/exampleButton"
+        tools:layout_marginStart="16dp" />
+
+    <!-- 
+        EXAMPLE 3: MaterialCardView with Theme Attributes
+        ✅ CORRECT: Uses ?attr/colorSurface for background
+        ❌ WRONG: app:cardBackgroundColor="@color/surface" (hardcoded)
+    -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/exampleCard"
+        style="@style/Widget.Curify.Card"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="?attr/colorSurface"
+        app:cardCornerRadius="@dimen/radius_medium"
+        app:cardElevation="@dimen/card_elevation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/exampleButton"
+        tools:layout_margin="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Card Title"
+                android:textAppearance="?attr/textAppearanceHeadline3"
+                android:textColor="?attr/colorOnSurface" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Card content goes here. This text uses theme attributes for proper dark mode support."
+                android:textAppearance="?attr/textAppearanceBody1"
+                android:textColor="?attr/colorOnSurfaceVariant" />
+
+            <!-- Divider using theme attribute -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginVertical="12dp"
+                android:background="?attr/colorOutlineVariant" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- 
+        EXAMPLE 4: TextInputLayout with Theme Attributes
+        ✅ CORRECT: Uses theme style which applies all colors automatically
+    -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/exampleTextInput"
+        style="@style/Widget.Curify.TextInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Example Input"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/exampleCard"
+        tools:layout_margin="16dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:textColor="?attr/colorOnSurface" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- 
+        EXAMPLE 5: FAB with Theme Attributes
+        ✅ CORRECT: Uses theme style
+    -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/exampleFAB"
+        style="@style/Widget.Curify.FAB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="Example FAB"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_add"
+        tools:layout_margin="16dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

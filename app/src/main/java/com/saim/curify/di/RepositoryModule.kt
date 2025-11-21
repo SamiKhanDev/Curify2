@@ -1,8 +1,10 @@
 package com.saim.curify.di
 
+import com.saim.data.repositories.AppointmentRepository
 import com.saim.data.repositories.MedicineRepository
 import com.saim.data.repositories.MyCartRepository
 import com.saim.data.repositories.PrescriptionRepository
+import com.saim.domain.repositories.AppointmentRepositoryContract
 import com.saim.domain.repositories.MedicineRepositoryContract
 import com.saim.domain.repositories.MyCartRepositoryContract
 import com.saim.domain.repositories.PrescriptionRepositoryContract
@@ -26,5 +28,9 @@ abstract class RepositoryModule {
     @Binds
     @Singleton
     abstract fun bindPrescriptionRepository(impl: PrescriptionRepository): PrescriptionRepositoryContract
+
+    @Binds
+    @Singleton
+    abstract fun bindAppointmentRepository(impl: AppointmentRepository): AppointmentRepositoryContract
 }
 

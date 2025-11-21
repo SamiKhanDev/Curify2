@@ -51,6 +51,16 @@ class DoctorsFragment : Fragment() {
                 Glide.with(b.root.context).load(d.photo).into(b.doctorPhoto)
 
                 b.status.text = calculateStatus(d.startTime, d.endTime)
+                
+                // Add click listener to navigate to doctor profile
+                b.root.setOnClickListener {
+                    val intent = android.content.Intent(
+                        b.root.context,
+                        com.saim.curify.ui.doctors.DoctorProfileActivity::class.java
+                    )
+                    intent.putExtra("doctor", com.google.gson.Gson().toJson(d))
+                    b.root.context.startActivity(intent)
+                }
             },
             diff = GenericListAdapter.simpleDiff(
                 areItemsTheSame = { o, n -> o.id == n.id },

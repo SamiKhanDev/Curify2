@@ -28,4 +28,8 @@
         android:id="@+id/item_chat"
         android:name="com.saim.curify.chat.ChatFragment"
         android:label="ChatFragment" />
+    <fragment
+        android:id="@+id/item_appointments"
+        android:name="com.saim.curify.appointment.AppointmentFragment"
+        android:label="Appointments" />
 </navigation>
