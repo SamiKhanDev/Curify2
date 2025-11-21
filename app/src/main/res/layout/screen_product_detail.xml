@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.medicine.ProductDetailActivity">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/productImage"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:contentDescription="@string/content_description_product_image"
+                android:scaleType="centerCrop"
+                android:src="@drawable/logo_curify" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/spacing_medium">
+
+                <TextView
+                    android:id="@+id/productTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Medicine Name"
+                    android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
+                    android:textColor="@color/text_primary" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/weight"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="500mg"
+                        android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+                        android:textColor="@color/text_secondary" />
+
+                    <TextView
+                        android:id="@+id/status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/in_stock"
+                        android:textColor="@color/success"
+                        android:textSize="@dimen/text_size_body"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_medium"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/currency"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="PKR"
+                        android:textAppearance="@style/TextAppearance.Material3.DisplaySmall"
+                        android:textColor="@color/text_primary"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_tiny"
+                        android:text="999"
+                        android:textAppearance="@style/TextAppearance.Material3.DisplaySmall"
+                        android:textColor="@color/text_primary"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginVertical="@dimen/spacing_medium"
+                    android:background="@color/divider" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/description"
+                    android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+                    android:textColor="@color/text_primary" />
+
+                <TextView
+                    android:id="@+id/description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:text="Medicine description goes here..."
+                    android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+                    android:textColor="@color/text_secondary" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_medium"
+                    android:text="@string/quantity"
+                    android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+                    android:textColor="@color/text_primary" />
+
+                <LinearLayout
+                    android:id="@+id/quantityContainer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/decreaseButton"
+                        style="@style/Widget.Material3.Button.IconButton"
+                        android:layout_width="@dimen/touch_target_min"
+                        android:layout_height="@dimen/touch_target_min"
+                        android:contentDescription="@string/content_description_decrease_quantity"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        app:icon="@drawable/ic_remove"
+                        app:iconTint="@color/primary" />
+
+                    <TextView
+                        android:id="@+id/quantityText"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="1"
+                        android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+                        android:textColor="@color/text_primary" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/increaseButton"
+                        style="@style/Widget.Material3.Button.IconButton"
+                        android:layout_width="@dimen/touch_target_min"
+                        android:layout_height="@dimen/touch_target_min"
+                        android:contentDescription="@string/content_description_increase_quantity"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        app:icon="@drawable/ic_add"
+                        app:iconTint="@color/primary" />
+                </LinearLayout>
+
+                <!-- Spacer for bottom buttons -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:cardElevation="8dp"
+        app:cardCornerRadius="@dimen/radius_medium">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/spacing_medium">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/addToCartButton"
+                style="@style/Widget.Curify.Button.Outlined"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/spacing_small"
+                android:layout_weight="1"
+                android:text="@string/add_to_cart" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buyNowButton"
+                style="@style/Widget.Curify.Button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/buy_now" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+

@@ -7,12 +7,12 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.saim.AdminModule.AuthViewModel
-import com.saim.curify.databinding.ActivityForgetpasswordBinding
+import com.saim.curify.databinding.ActivityForgotPasswordBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.launch
 
 class Forgetpassword : AppCompatActivity() {
-    lateinit var binding: ActivityForgetpasswordBinding
+    lateinit var binding: ActivityForgotPasswordBinding
     lateinit var progressDialog: ProgressDialog
 
 
@@ -20,7 +20,7 @@ class Forgetpassword : AppCompatActivity() {
     lateinit var viewModel: AuthViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding= ActivityForgetpasswordBinding.inflate(layoutInflater)
+        binding = ActivityForgotPasswordBinding.inflate(layoutInflater)
         setContentView(binding.root)
         viewModel= AuthViewModel()
 
@@ -55,12 +55,11 @@ class Forgetpassword : AppCompatActivity() {
             }
         }
 
-        binding.signupTxt.setOnClickListener{
-
+        binding.backToLogin.setOnClickListener {
             finish()
         }
-        binding.resetpassbtn.setOnClickListener {
-            val email = binding.email.text.toString()
+        binding.resetButton.setOnClickListener {
+            val email = binding.emailInput.text.toString()
 
 
             if (!email.contains("@")) {

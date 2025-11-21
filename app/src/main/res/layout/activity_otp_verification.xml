@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/spacing_medium"
+    tools:context=".ui.auth.OtpVerificationActivity">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="@dimen/spacing_xlarge"
+        android:contentDescription="@string/content_description_logo"
+        android:src="@drawable/logo_curify"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_large"
+        android:gravity="center"
+        android:text="@string/otp_verification"
+        android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
+        android:textColor="@color/text_primary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logo" />
+
+    <TextView
+        android:id="@+id/subtitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_small"
+        android:gravity="center"
+        android:text="@string/otp_sent_to"
+        android:textColor="@color/text_secondary"
+        android:textSize="@dimen/text_size_body"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/otpLayout"
+        style="@style/Widget.Curify.TextInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_xlarge"
+        android:hint="@string/enter_otp"
+        app:startIconDrawable="@drawable/ic_lock"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/subtitle">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/otpInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:maxLength="6"
+            android:minHeight="@dimen/input_height" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/verifyButton"
+        style="@style/Widget.Curify.Button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_xlarge"
+        android:text="@string/verify"
+        app:layout_constraintEnd_toEndOf="@id/otpLayout"
+        app:layout_constraintStart_toStartOf="@id/otpLayout"
+        app:layout_constraintTop_toBottomOf="@id/otpLayout" />
+
+    <TextView
+        android:id="@+id/resendOtp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_medium"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="@dimen/spacing_small"
+        android:text="@string/resend_otp"
+        android:textColor="@color/primary"
+        android:textSize="@dimen/text_size_body"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/verifyButton" />
+
+    <!-- TODO: Integrate OTP verification service -->
+    <!-- TODO: Add countdown timer for resend OTP -->
+    <!-- TODO: Auto-fill OTP from SMS (SMS Retriever API) -->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

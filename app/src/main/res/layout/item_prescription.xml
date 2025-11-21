@@ -1,47 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="12dp"
-    app:cardCornerRadius="12dp">
+    android:layout_margin="@dimen/spacing_small"
+    style="@style/Widget.Curify.Card"
+    android:clickable="true"
+    android:focusable="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="12dp">
+        android:padding="@dimen/spacing_medium">
 
         <ImageView
             android:id="@+id/thumbnail"
-            android:layout_width="72dp"
-            android:layout_height="72dp"
-            android:scaleType="centerCrop"/>
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:contentDescription="@string/prescription_preview"
+            android:scaleType="centerCrop"
+            tools:src="@drawable/logo_curify" />
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_medium"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:paddingStart="12dp">
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/note"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/on_surface"
-                android:textSize="14sp"
-                android:text="Note" />
+                android:text="Note"
+                android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+                android:textColor="@color/text_primary"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/silver"
-                android:text="pending" />
-
+                android:layout_marginTop="@dimen/spacing_tiny"
+                android:text="@string/pending"
+                android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+                android:textColor="@color/warning" />
         </LinearLayout>
     </LinearLayout>
-
-</androidx.cardview.widget.CardView>
-
+</com.google.android.material.card.MaterialCardView>

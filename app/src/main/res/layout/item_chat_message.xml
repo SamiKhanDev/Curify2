@@ -1,20 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="12dp">
+    android:padding="@dimen/spacing_small">
 
     <TextView
         android:id="@+id/messageRole"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textStyle="bold"/>
+        android:text="User"
+        android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+        android:textColor="@color/text_secondary"
+        android:textStyle="bold"
+        tools:layout_gravity="end" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginTop="@dimen/spacing_tiny"
+        app:cardBackgroundColor="@color/surface"
+        app:cardCornerRadius="@dimen/radius_medium"
+        app:cardElevation="1dp"
+        tools:layout_gravity="end">
+
+        <TextView
+            android:id="@+id/messageText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="250dp"
+            android:padding="@dimen/spacing_medium"
+            android:text="Message text"
+            android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+            android:textColor="@color/text_primary" />
+    </com.google.android.material.card.MaterialCardView>
 
     <TextView
-        android:id="@+id/messageText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
+        android:id="@+id/timestamp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_tiny"
+        android:text="10:30 AM"
+        android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+        android:textColor="@color/text_hint"
+        tools:layout_gravity="end" />
 </LinearLayout>
-

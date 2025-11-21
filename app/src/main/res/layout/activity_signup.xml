@@ -1,135 +1,187 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.saim.AuthenticationModule.SignupActivity">
+    android:fillViewport="true"
+    tools:context=".ui.auth.SignupActivity">
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="152dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="152dp"
-        android:text="Signup"
-        android:textSize="34sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/backbtn" />
+        android:padding="@dimen/spacing_medium">
 
-    <EditText
-        android:id="@+id/name"
-        android:layout_width="300dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="50dp"
-        android:background="@drawable/edit_text_rounded"
-        android:backgroundTint="#F8F4F4"
-        android:drawableLeft="@drawable/user2"
-        android:drawablePadding="10dp"
-        android:elevation="10dp"
-        android:hint="Enter your name"
-        android:padding="12dp"
-        android:textColor="#000000"
-        android:textColorHint="#888888"
-        app:layout_constraintEnd_toEndOf="@+id/textView3"
-        app:layout_constraintStart_toStartOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        <ImageView
+            android:id="@+id/backbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_medium"
+            android:layout_marginTop="@dimen/spacing_medium"
+            android:contentDescription="@string/content_description_back"
+            android:src="@drawable/ic_arrow_back"
+            app:tint="@color/text_primary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/email"
-        android:layout_width="300dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/edit_text_rounded"
-        android:backgroundTint="#F8F4F4"
-        android:drawableLeft="@drawable/sms"
-        android:drawablePadding="10dp"
-        android:elevation="10dp"
-        android:hint="Enter your email"
-        android:padding="12dp"
-        android:textColor="#000000"
-        android:textColorHint="#888888"
-        app:layout_constraintEnd_toEndOf="@+id/name"
-        app:layout_constraintStart_toStartOf="@+id/name"
-        app:layout_constraintTop_toBottomOf="@+id/name" />
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="@dimen/spacing_xlarge"
+            android:contentDescription="@string/content_description_logo"
+            android:src="@drawable/logo_curify"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/backbtn" />
 
-    <EditText
-        android:id="@+id/Password"
-        android:layout_width="300dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/edit_text_rounded"
-        android:backgroundTint="#F8F4F4"
-        android:drawableLeft="@drawable/lock"
-        android:drawablePadding="10dp"
-        android:elevation="10dp"
-        android:ems="10"
-        android:hint="Enter your password"
-        android:inputType="textPassword"
-        android:padding="12dp"
-        android:textColor="#000000"
-        android:textColorHint="#888888"
-        app:layout_constraintEnd_toEndOf="@+id/email"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/email"
-        app:layout_constraintTop_toBottomOf="@+id/email" />
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:text="@string/signup"
+            android:textAppearance="@style/TextAppearance.Material3.HeadlineLarge"
+            android:textColor="@color/text_primary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/logo" />
 
-    <CheckBox
-        android:id="@+id/checkBox"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="I agree to the Curify Terms of Service and Privacy Policy"
-        app:layout_constraintEnd_toEndOf="@+id/Password"
-        app:layout_constraintStart_toStartOf="@+id/Password"
-        app:layout_constraintTop_toBottomOf="@+id/Password" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/nameLayout"
+            style="@style/Widget.Curify.TextInputLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_xlarge"
+            android:hint="@string/name"
+            app:startIconDrawable="@drawable/ic_person"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title">
 
-    <Button
-        android:id="@+id/signbtn"
-        android:layout_width="250dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="30dp"
-        android:backgroundTint="#0D9AB6"
-        android:text="Signup"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/checkBox"
-        app:layout_constraintStart_toStartOf="@+id/checkBox"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/nameInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:minHeight="@dimen/input_height" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="32dp"
-        android:text="Already have an account?"
-        app:layout_constraintEnd_toEndOf="@+id/signbtn"
-        app:layout_constraintStart_toStartOf="@+id/signbtn"
-        app:layout_constraintTop_toBottomOf="@+id/signbtn" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/emailLayout"
+            style="@style/Widget.Curify.TextInputLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_medium"
+            android:hint="@string/email"
+            app:startIconDrawable="@drawable/ic_email"
+            app:layout_constraintEnd_toEndOf="@id/nameLayout"
+            app:layout_constraintStart_toStartOf="@id/nameLayout"
+            app:layout_constraintTop_toBottomOf="@id/nameLayout">
 
-    <TextView
-        android:id="@+id/loginbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:text="Login"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/emailInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:minHeight="@dimen/input_height" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        android:textColor="#0D9AB6"
-        app:layout_constraintStart_toEndOf="@+id/textView4"
-        app:layout_constraintTop_toTopOf="@+id/textView4" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passwordLayout"
+            style="@style/Widget.Curify.TextInputLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_medium"
+            android:hint="@string/password"
+            app:endIconMode="password_toggle"
+            app:startIconDrawable="@drawable/ic_lock"
+            app:layout_constraintEnd_toEndOf="@id/emailLayout"
+            app:layout_constraintStart_toStartOf="@id/emailLayout"
+            app:layout_constraintTop_toBottomOf="@id/emailLayout">
 
-    <ImageView
-        android:id="@+id/backbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="22dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/backbtn" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passwordInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:minHeight="@dimen/input_height" />
+        </com.google.android.material.textfield.TextInputLayout>
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/confirmPasswordLayout"
+            style="@style/Widget.Curify.TextInputLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_medium"
+            android:hint="@string/confirm_password"
+            app:endIconMode="password_toggle"
+            app:startIconDrawable="@drawable/ic_lock"
+            app:layout_constraintEnd_toEndOf="@id/passwordLayout"
+            app:layout_constraintStart_toStartOf="@id/passwordLayout"
+            app:layout_constraintTop_toBottomOf="@id/passwordLayout">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/confirmPasswordInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:minHeight="@dimen/input_height" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/termsCheckbox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_medium"
+            android:text="@string/terms_and_conditions"
+            android:textSize="@dimen/text_size_body"
+            app:layout_constraintEnd_toEndOf="@id/confirmPasswordLayout"
+            app:layout_constraintStart_toStartOf="@id/confirmPasswordLayout"
+            app:layout_constraintTop_toBottomOf="@id/confirmPasswordLayout" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/signupButton"
+            style="@style/Widget.Curify.Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:text="@string/signup"
+            app:layout_constraintEnd_toEndOf="@id/termsCheckbox"
+            app:layout_constraintStart_toStartOf="@id/termsCheckbox"
+            app:layout_constraintTop_toBottomOf="@id/termsCheckbox" />
+
+        <LinearLayout
+            android:id="@+id/loginPrompt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:layout_marginBottom="@dimen/spacing_xlarge"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/signupButton">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/already_have_account"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/text_size_body" />
+
+            <TextView
+                android:id="@+id/loginLink"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_tiny"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="@dimen/spacing_tiny"
+                android:text="@string/login"
+                android:textColor="@color/primary"
+                android:textSize="@dimen/text_size_body"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

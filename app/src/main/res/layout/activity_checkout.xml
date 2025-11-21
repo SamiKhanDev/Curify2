@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.checkout.CheckoutActivity">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_medium">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/order_summary"
+                android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
+                android:textColor="@color/text_primary" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/orderItemsRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_medium"
+                android:orientation="vertical"
+                tools:listitem="@layout/item_cart" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/paymentMethodCard"
+                style="@style/Widget.Curify.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_large"
+                android:clickable="true"
+                android:focusable="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/spacing_medium">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/payment_method"
+                        android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+                        android:textColor="@color/text_primary" />
+
+                    <ImageView
+                        android:id="@+id/paymentMethodIcon"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:contentDescription="@string/payment_method"
+                        android:src="@drawable/ic_credit_card"
+                        app:tint="@color/primary" />
+
+                    <TextView
+                        android:id="@+id/paymentMethodText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_small"
+                        android:text="@string/select_payment_method"
+                        android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+                        android:textColor="@color/text_secondary" />
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:contentDescription="@string/change"
+                        android:src="@drawable/ic_chevron_right"
+                        app:tint="@color/text_secondary" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.Curify.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_medium">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/spacing_medium">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/subtotal"
+                            android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+                            android:textColor="@color/text_secondary" />
+
+                        <TextView
+                            android:id="@+id/subtotalText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="PKR 0"
+                            android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+                            android:textColor="@color/text_primary" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_small"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/taxes"
+                            android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+                            android:textColor="@color/text_secondary" />
+
+                        <TextView
+                            android:id="@+id/taxesText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="PKR 0"
+                            android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+                            android:textColor="@color/text_primary" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="@dimen/spacing_medium"
+                        android:background="@color/divider" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/total"
+                            android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+                            android:textColor="@color/text_primary"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/totalText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="PKR 0"
+                            android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+                            android:textColor="@color/text_primary"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Spacer for bottom button -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="80dp" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/placeOrderButton"
+        style="@style/Widget.Curify.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_margin="@dimen/spacing_medium"
+        android:text="@string/place_order" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+

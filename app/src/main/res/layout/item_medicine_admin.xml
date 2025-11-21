@@ -1,116 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="0dp"
+    android:layout_margin="@dimen/spacing_small"
+    style="@style/Widget.Curify.Card"
+    android:clickable="true"
+    android:focusable="true">
 
-
-    android:padding="0dp">
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardview"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/spacing_medium">
 
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="8dp"
-        app:cardCornerRadius="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        <ImageView
+            android:id="@+id/productImage"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:contentDescription="@string/content_description_product_image"
+            android:scaleType="centerCrop"
+            tools:src="@drawable/logo_curify" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:id="@+id/productImage"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="5dp"
-                android:contentDescription="Product Image"
-                android:src="@drawable/logo_curify"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_medium"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="16dp"
-                android:gravity="center"
-                android:text="Product Title"
-                android:textColor="#000000"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/productImage"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:text="Medicine Name"
+                android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+                android:textColor="@color/text_primary"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/weight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-
-                android:text="weight"
-                android:textColor="#000000"
-                android:textSize="12dp"
-                app:layout_constraintStart_toStartOf="@+id/title"
-                app:layout_constraintTop_toBottomOf="@+id/title" />
+                android:layout_marginTop="@dimen/spacing_tiny"
+                android:text="500mg"
+                android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+                android:textColor="@color/text_secondary" />
 
             <TextView
                 android:id="@+id/status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:gravity="center"
-                android:text="In Stock"
-                android:textColor="#0BE61B"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/title"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/title" />
-
-            <TextView
-                android:id="@+id/rating"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="22dp"
-                android:layout_marginBottom="8dp"
-                android:gravity="center"
-                android:text="PKR"
-                android:textColor="#000000"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/weight"
-                app:layout_constraintTop_toBottomOf="@+id/weight" />
+                android:layout_marginTop="@dimen/spacing_tiny"
+                android:text="@string/in_stock"
+                android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+                android:textColor="@color/success"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:gravity="center"
-                android:textColor="#000000"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/rating"
-                app:layout_constraintStart_toEndOf="@+id/rating"
-                app:layout_constraintTop_toTopOf="@+id/rating" />
+                android:layout_marginTop="@dimen/spacing_tiny"
+                android:text="PKR 999"
+                android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+                android:textColor="@color/text_primary"
+                android:textStyle="bold" />
+        </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/editButton"
+                style="@style/Widget.Material3.Button.IconButton"
+                android:layout_width="@dimen/touch_target_min"
+                android:layout_height="@dimen/touch_target_min"
+                android:contentDescription="@string/edit"
+                app:icon="@drawable/ic_edit"
+                app:iconTint="@color/primary" />
 
-    </androidx.cardview.widget.CardView>
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/deleteButton"
+                style="@style/Widget.Material3.Button.IconButton"
+                android:layout_width="@dimen/touch_target_min"
+                android:layout_height="@dimen/touch_target_min"
+                android:contentDescription="@string/delete"
+                app:icon="@drawable/ic_delete"
+                app:iconTint="@color/error" />
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

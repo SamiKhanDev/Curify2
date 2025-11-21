@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Urdu translations -->
+    <!-- TODO: Add proper Urdu translations for all strings -->
+    <string name="app_name">Curify</string>
+    <string name="login">لاگ ان</string>
+    <string name="signup">سائن اپ</string>
+    <string name="medicine">دوا</string>
+    <string name="doctors">ڈاکٹرز</string>
+    <string name="cart">ٹوکری</string>
+    <string name="profile">پروفائل</string>
+    <string name="chat">چیٹ</string>
+</resources>
+

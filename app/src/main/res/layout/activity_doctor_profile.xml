@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.doctors.DoctorProfileActivity">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/doctorPhoto"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:contentDescription="@string/content_description_doctor_photo"
+                android:scaleType="centerCrop"
+                tools:src="@drawable/ic_launcher_background" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/spacing_medium">
+
+                <TextView
+                    android:id="@+id/doctorName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dr. Name"
+                    android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
+                    android:textColor="@color/text_primary" />
+
+                <TextView
+                    android:id="@+id/specialization"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_tiny"
+                    android:text="Cardiologist"
+                    android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+                    android:textColor="@color/text_secondary" />
+
+                <TextView
+                    android:id="@+id/hospital"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_tiny"
+                    android:text="Hospital Name"
+                    android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+                    android:textColor="@color/text_secondary" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_medium"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/consultation_fee"
+                        android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+                        android:textColor="@color/text_secondary" />
+
+                    <TextView
+                        android:id="@+id/fee"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_small"
+                        android:text="PKR 0"
+                        android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+                        android:textColor="@color/text_primary"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginVertical="@dimen/spacing_medium"
+                    android:background="@color/divider" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/select_time_slot"
+                    android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+                    android:textColor="@color/text_primary" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/timeSlotsRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_medium"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_time_slot" />
+
+                <!-- Spacer for bottom button -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/bookAppointmentButton"
+        style="@style/Widget.Curify.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_margin="@dimen/spacing_medium"
+        android:text="@string/book_appointment" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+

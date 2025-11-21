@@ -44,7 +44,7 @@ class HomeFragment : Fragment() {
             binding.searchInput.requestFocus()
         }
 
-        binding.seeAll.setOnClickListener {
+        binding.seeAllPopular.setOnClickListener {
             findNavController().navigate(R.id.item_medicine)
         }
 
@@ -74,8 +74,8 @@ class HomeFragment : Fragment() {
                 areContentsTheSame = { o, n -> o == n }
             )
         )
-        binding.recyclerPopular.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        binding.recyclerPopular.adapter = adapter
+        binding.popularMedicinesRecyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        binding.popularMedicinesRecyclerView.adapter = adapter
 
         // ViewModel and lifecycle-aware collection
         val vm = MedicineFragmentViewModel()
@@ -87,7 +87,7 @@ class HomeFragment : Fragment() {
                         allMedicines.addAll(it)
                         // Default view: top 10
                         adapter.submitList(it.take(10))
-                        binding.empty.visibility = if (it.isEmpty()) View.VISIBLE else View.GONE
+                        binding.emptyState.visibility = if (it.isEmpty()) View.VISIBLE else View.GONE
                     }
                 }
             }

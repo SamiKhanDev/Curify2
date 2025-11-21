@@ -20,51 +20,48 @@ class SignupActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
 
-            binding=ActivitySignupBinding.inflate(layoutInflater)
-            setContentView(binding.root)
-
-
-            viewModel= AuthViewModel()
-
-            viewModel.checkcurrentuser()
-
-
-            progressDialog= ProgressDialog(this)
-            progressDialog.setMessage("Please wait")
-            progressDialog.setCancelable(false)
-            lifecycleScope.launch {
-                viewModel.failureMessage.collect {
-                    progressDialog.dismiss()
-                    if (it != null) {
-
-                        Toast.makeText(this@SignupActivity, it, Toast.LENGTH_SHORT).show()
-                    }
-                }
-            }
-            lifecycleScope.launch {
-                viewModel.currentUser.collect {
-                    progressDialog.dismiss()
-                    if (it != null) {
-
-                        startActivity(Intent(this@SignupActivity, MainActivity::class.java))
-                        finish()
-                    }
-                }
-            }
         binding = ActivitySignupBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.loginbtn.setOnClickListener {
+
+        viewModel = AuthViewModel()
+        viewModel.checkcurrentuser()
+
+        progressDialog = ProgressDialog(this)
+        progressDialog.setMessage("Please wait")
+        progressDialog.setCancelable(false)
+        
+        lifecycleScope.launch {
+            viewModel.failureMessage.collect {
+                progressDialog.dismiss()
+                if (it != null) {
+                    Toast.makeText(this@SignupActivity, it, Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+        
+        lifecycleScope.launch {
+            viewModel.currentUser.collect {
+                progressDialog.dismiss()
+                if (it != null) {
+                    startActivity(Intent(this@SignupActivity, MainActivity::class.java))
+                    finish()
+                }
+            }
+        }
+        
+        binding.loginLink.setOnClickListener {
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
         }
+        
         binding.backbtn.setOnClickListener {
-
             finish()
         }
-        binding.signbtn.setOnClickListener {
-            val name = binding.name.text.toString()
-            val email = binding.email.text.toString()
-            val password = binding.Password.text.toString()
+        
+        binding.signupButton.setOnClickListener {
+            val name = binding.nameInput.text.toString()
+            val email = binding.emailInput.text.toString()
+            val password = binding.passwordInput.text.toString()
 
 
 
@@ -76,7 +73,7 @@ class SignupActivity : AppCompatActivity() {
                 Toast.makeText(this, "Email Cannot be Empty", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            if (!binding.checkBox.isChecked) {
+            if (!binding.termsCheckbox.isChecked) {
                 Toast.makeText(this, "You must agree to our conditions", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }

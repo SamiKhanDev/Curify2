@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/spacing_small"
+    style="@style/Widget.Curify.Card">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/spacing_medium">
+
+        <ImageView
+            android:id="@+id/productImage"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:contentDescription="@string/content_description_product_image"
+            android:scaleType="centerCrop"
+            android:src="@drawable/logo_curify"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/productTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_medium"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="Product Title"
+            android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+            android:textColor="@color/text_primary"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/deleteButton"
+            app:layout_constraintStart_toEndOf="@id/productImage"
+            app:layout_constraintTop_toTopOf="@id/productImage" />
+
+        <TextView
+            android:id="@+id/weight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_tiny"
+            android:text="500mg"
+            android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+            android:textColor="@color/text_secondary"
+            app:layout_constraintStart_toStartOf="@id/productTitle"
+            app:layout_constraintTop_toBottomOf="@id/productTitle" />
+
+        <LinearLayout
+            android:id="@+id/priceContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="@id/productTitle"
+            app:layout_constraintTop_toBottomOf="@id/weight">
+
+            <TextView
+                android:id="@+id/currency"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PKR"
+                android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+                android:textColor="@color/text_primary"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_tiny"
+                android:text="999"
+                android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+                android:textColor="@color/text_primary"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/quantityContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/productTitle">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/decreaseButton"
+                style="@style/Widget.Material3.Button.IconButton"
+                android:layout_width="@dimen/touch_target_min"
+                android:layout_height="@dimen/touch_target_min"
+                android:contentDescription="@string/content_description_decrease_quantity"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                app:icon="@drawable/ic_remove"
+                app:iconTint="@color/primary" />
+
+            <TextView
+                android:id="@+id/quantityText"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="1"
+                android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+                android:textColor="@color/text_primary" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/increaseButton"
+                style="@style/Widget.Material3.Button.IconButton"
+                android:layout_width="@dimen/touch_target_min"
+                android:layout_height="@dimen/touch_target_min"
+                android:contentDescription="@string/content_description_increase_quantity"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                app:icon="@drawable/ic_add"
+                app:iconTint="@color/primary" />
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/deleteButton"
+            style="@style/Widget.Material3.Button.IconButton"
+            android:layout_width="@dimen/touch_target_min"
+            android:layout_height="@dimen/touch_target_min"
+            android:contentDescription="@string/content_description_remove_from_cart"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            app:icon="@drawable/ic_delete"
+            app:iconTint="@color/error"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/productImage" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>
+

@@ -1,97 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".home.HomeFragment">
+    tools:context=".ui.home.HomeFragment">
 
     <androidx.core.widget.NestedScrollView
-        android:id="@+id/scroll"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="@dimen/spacing_medium">
 
             <TextView
                 android:id="@+id/greetingText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/on_surface"
-                android:textStyle="bold"
-                android:textSize="20sp"
-                tools:text="Hi, Adeel" />
+                android:text="@string/greeting"
+                android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
+                android:textColor="@color/text_primary"
+                tools:text="Hi, John" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/searchLayout"
-                style="@style/Widget.Material3.TextInputLayout.FilledBox"
+                style="@style/Widget.Curify.TextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                app:startIconDrawable="@drawable/search"
+                android:layout_marginTop="@dimen/spacing_medium"
+                android:hint="@string/search_medicines"
+                app:startIconDrawable="@drawable/ic_search"
                 app:boxBackgroundColor="@color/surface">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/searchInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Search medicines"
                     android:focusable="false"
-                    android:cursorVisible="false" />
+                    android:cursorVisible="false"
+                    android:minHeight="@dimen/input_height" />
             </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/categoriesTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_large"
+                android:text="@string/categories"
+                android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+                android:textColor="@color/text_primary" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/categoriesRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_medium"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_category" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
+                android:layout_marginTop="@dimen/spacing_large"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/sectionTitle"
+                    android:id="@+id/popularTitle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Popular medicines"
-                    android:textColor="@color/on_surface"
-                    android:textStyle="bold"
-                    android:textSize="18sp" />
+                    android:text="@string/popular_medicines"
+                    android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+                    android:textColor="@color/text_primary" />
 
                 <TextView
-                    android:id="@+id/seeAll"
+                    android:id="@+id/seeAllPopular"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="See all"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="@dimen/spacing_small"
+                    android:text="@string/see_all"
                     android:textColor="@color/primary"
+                    android:textSize="@dimen/text_size_body"
                     android:textStyle="bold" />
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerPopular"
+                android:id="@+id/popularMedicinesRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:overScrollMode="never"
-                tools:listitem="@layout/item_medicine" />
+                android:layout_marginTop="@dimen/spacing_medium"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_medicine_card" />
 
             <TextView
-                android:id="@+id/empty"
+                android:id="@+id/recommendedTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:text="No popular products yet"
+                android:layout_marginTop="@dimen/spacing_large"
+                android:text="@string/recommended"
+                android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+                android:textColor="@color/text_primary" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recommendedMedicinesRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_medium"
+                android:orientation="vertical"
+                tools:listitem="@layout/item_medicine_card" />
+
+            <TextView
+                android:id="@+id/emptyState"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/spacing_xlarge"
+                android:text="@string/no_items"
+                android:textColor="@color/text_secondary"
                 android:visibility="gone"
-                android:textAppearance="@style/TextAppearance.Material3.BodyLarge"/>
+                tools:visibility="visible" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/buyMedicineFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/spacing_medium"
+        android:text="@string/buy_medicine"
+        app:icon="@drawable/ic_add_shopping_cart" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

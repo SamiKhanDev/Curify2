@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_manage_medicine"
+        android:icon="@drawable/ic_medication"
+        android:title="@string/manage_medicine" />
+    <item
+        android:id="@+id/nav_manage_doctors"
+        android:icon="@drawable/ic_person"
+        android:title="@string/manage_doctors" />
+    <item
+        android:id="@+id/nav_manage_orders"
+        android:icon="@drawable/ic_shopping_cart"
+        android:title="@string/manage_orders" />
+    <item
+        android:id="@+id/nav_logout"
+        android:icon="@drawable/ic_logout"
+        android:title="@string/logout" />
+</menu>
+

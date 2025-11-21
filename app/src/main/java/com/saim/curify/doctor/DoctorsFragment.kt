@@ -6,7 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.widget.addTextChangedListener
+import android.text.Editable
+import android.text.TextWatcher
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
@@ -42,12 +43,12 @@ class DoctorsFragment : Fragment() {
             },
             bind = { b, d ->
 
-                b.name.text = d.name
-                b.specialty.text = d.specialization
+                b.doctorName.text = d.name
+                b.specialization.text = d.specialization
                 b.hospital.text = d.hospital
                 b.fee.text = d.fee + " PKR"
 
-                Glide.with(b.root.context).load(d.photo).into(b.photo)
+                Glide.with(b.root.context).load(d.photo).into(b.doctorPhoto)
 
                 b.status.text = calculateStatus(d.startTime, d.endTime)
             },
@@ -57,8 +58,8 @@ class DoctorsFragment : Fragment() {
             )
         )
 
-        binding.list.layoutManager = LinearLayoutManager(requireContext())
-        binding.list.adapter = adapter
+        binding.doctorsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.doctorsRecyclerView.adapter = adapter
 
         val vm = DoctorsViewModel()
 
@@ -68,25 +69,29 @@ class DoctorsFragment : Fragment() {
                 all.addAll(list)
                 adapter.submitList(list)
 
-                binding.empty.visibility =
+                binding.emptyState.visibility =
                     if (list.isEmpty()) View.VISIBLE else View.GONE
             }
         }
 
-        binding.search.addTextChangedListener { text ->
-            val q = text.toString().lowercase()
-            if (q.isEmpty()) {
-                adapter.submitList(all)
-            } else {
-                adapter.submitList(
-                    all.filter { d ->
-                        d.name.lowercase().contains(q) ||
-                                d.specialization.lowercase().contains(q) ||
-                                d.hospital.lowercase().contains(q)
-                    }
-                )
+        binding.searchInput.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+            override fun afterTextChanged(s: Editable?) {
+                val q = s?.toString()?.lowercase() ?: ""
+                if (q.isEmpty()) {
+                    adapter.submitList(all)
+                } else {
+                    adapter.submitList(
+                        all.filter { d ->
+                            d.name.lowercase().contains(q) ||
+                                    d.specialization.lowercase().contains(q) ||
+                                    d.hospital.lowercase().contains(q)
+                        }
+                    )
+                }
             }
-        }
+        })
     }
 
     private fun calculateStatus(start: String, end: String): String {

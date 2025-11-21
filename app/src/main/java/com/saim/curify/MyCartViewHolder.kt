@@ -1,8 +1,8 @@
 package com.saim.curify
 
 import androidx.recyclerview.widget.RecyclerView
-import com.saim.curify.databinding.ItemAddedToCartBinding
+import com.saim.curify.databinding.ItemCartBinding
 
-class MyCartViewHolder(val binding: ItemAddedToCartBinding) : RecyclerView.ViewHolder(binding.root)  {
+class MyCartViewHolder(val binding: ItemCartBinding) : RecyclerView.ViewHolder(binding.root)  {
 
 }

@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- Permissions -->
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
-    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
 
     <application
         android:name=".CurifyApp"
@@ -19,66 +23,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Curify"
         tools:targetApi="31">
-        <activity
-            android:name=".payment.PaymentDetailActivity"
-            android:exported="false" />
-        <activity
-            android:name=".medicine.prescription.UploadPrescriptionActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MyCart"
-            android:exported="false" />
-        <activity
-            android:name="com.saim.AdminModule.AdminUADMedicine"
-            android:exported="false" />
-        <activity
-            android:name="com.saim.AdminModule.AdminManageMedicine"
-            android:exported="false" />
-        <activity
-            android:name="com.saim.AdminModule.AdminMainScreen"
-            android:exported="false" />
-        <activity
-            android:name="com.saim.MedicalStoreModule.MedicineDetailActivity"
-            android:exported="false" />
-        <activity
-            android:name="com.saim.MedicalStoreModule.AddMedicine"
-            android:exported="false" />
-        <activity
-            android:name="com.saim.AdminModule.AdminManageDoctors"
-            android:exported="false"/>
-        <activity
-            android:name="com.saim.AdminModule.AdminManageOrders"
-            android:exported="false"/>
-
-
-        <activity
-            android:name="com.saim.MedicalStoreModule.UpdateMedicine"
-            android:exported="false" />
-        <activity
-            android:name="com.saim.MedicalStoreModule.MedicineDetails"
-            android:exported="false" />
-        <activity
-            android:name=".payment.AddedPaymentMethod"
-            android:exported="false" />
-        <activity
-            android:name=".payment.EasyPaisaPaymentDetails"
-            android:exported="false" />
-        <activity
-            android:name=".payment.JazzcashPaymentDetails"
-            android:exported="false" />
-        <activity
-            android:name=".payment.PaymentMethods"
-            android:exported="false" />
         
-        <activity
-            android:name="com.saim.AuthenticationModule.Forgetpassword"
-            android:exported="false" />
-        <activity
-            android:name="com.saim.AuthenticationModule.SignupActivity"
-            android:exported="false" />
-        <activity
-            android:name="com.saim.AuthenticationModule.LoginActivity"
-            android:exported="false" />
+        <!-- Splash Screen Activity -->
         <activity
             android:name=".splash.SplashActivity"
             android:exported="true"
@@ -88,13 +34,123 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".splash.start_screen"
-            android:exported="false" />
+
+        <!-- Main Activity -->
         <activity
             android:name=".MainActivity"
-            android:exported="false" />
-    </application>
+            android:exported="false"
+            android:theme="@style/Theme.Curify" />
 
+        <!-- Authentication Activities -->
+        <activity
+            android:name=".ui.auth.LoginActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Curify" />
+        <activity
+            android:name="com.saim.AuthenticationModule.LoginActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Curify" />
+        <activity
+            android:name=".ui.auth.SignupActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Curify" />
+        <activity
+            android:name="com.saim.AuthenticationModule.SignupActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Curify" />
+        <activity
+            android:name=".ui.auth.ForgotPasswordActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Curify" />
+        <activity
+            android:name="com.saim.AuthenticationModule.Forgetpassword"
+            android:exported="false"
+            android:theme="@style/Theme.Curify" />
+        <activity
+            android:name=".ui.auth.OtpVerificationActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Curify" />
+
+        <!-- Medicine Activities -->
+        <activity
+            android:name=".ui.medicine.ProductDetailActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Curify" />
+        <activity
+            android:name="com.saim.MedicalStoreModule.MedicineDetailActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Curify" />
+
+        <!-- Checkout Activity -->
+        <activity
+            android:name=".ui.checkout.CheckoutActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Curify" />
+
+        <!-- Payment Activities -->
+        <activity
+            android:name=".ui.payment.PaymentMethodsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Curify" />
+        <activity
+            android:name="com.saim.curify.payment.PaymentMethods"
+            android:exported="false"
+            android:theme="@style/Theme.Curify" />
+        <activity
+            android:name=".ui.payment.PaymentDetailsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Curify" />
+        <activity
+            android:name="com.saim.curify.payment.PaymentDetailActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Curify" />
+        <activity
+            android:name="com.saim.curify.payment.JazzcashPaymentDetails"
+            android:exported="false"
+            android:theme="@style/Theme.Curify" />
+        <activity
+            android:name="com.saim.curify.payment.EasyPaisaPaymentDetails"
+            android:exported="false"
+            android:theme="@style/Theme.Curify" />
+        <activity
+            android:name="com.saim.curify.payment.AddedPaymentMethod"
+            android:exported="false"
+            android:theme="@style/Theme.Curify" />
+
+        <!-- Doctor Activities -->
+        <activity
+            android:name=".ui.doctors.DoctorProfileActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Curify" />
+
+        <!-- Prescription Activity -->
+        <activity
+            android:name=".ui.prescription.UploadPrescriptionActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Curify" />
+
+        <!-- Admin Activity -->
+        <activity
+            android:name=".ui.admin.AdminActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Curify" />
+        <activity
+            android:name="com.saim.AdminModule.AdminMainScreen"
+            android:exported="false"
+            android:theme="@style/Theme.Curify" />
+        
+        <!-- Cart Activity -->
+        <activity
+            android:name="com.saim.curify.MyCart"
+            android:exported="false"
+            android:theme="@style/Theme.Curify" />
+        
+        <!-- Start Screen Activity -->
+        <activity
+            android:name="com.saim.curify.splash.start_screen"
+            android:exported="false"
+            android:theme="@style/Theme.Curify" />
+
+    </application>
 
 </manifest>

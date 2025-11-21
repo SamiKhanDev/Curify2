@@ -44,22 +44,21 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
         }
-        binding.signupbtn.setOnClickListener{
+        binding.signupLink.setOnClickListener {
             startActivity(Intent(this, SignupActivity::class.java))
             finish()
         }
-        binding.forgotbtn.setOnClickListener{
+        binding.forgotPassword.setOnClickListener {
             startActivity(Intent(this, Forgetpassword::class.java))
             finish()
         }
 
-        binding.backbtn.setOnClickListener{
-
+        binding.backbtn.setOnClickListener {
             finish()
         }
-        binding.loginbtn.setOnClickListener {
-            val email = binding.email.text.toString()
-            val password = binding.password.text.toString()
+        binding.loginButton.setOnClickListener {
+            val email = binding.emailInput.text.toString()
+            val password = binding.passwordInput.text.toString()
 
             if (!email.contains("@")) {
                 Toast.makeText(this, "Email Cannot be Empty", Toast.LENGTH_SHORT).show()

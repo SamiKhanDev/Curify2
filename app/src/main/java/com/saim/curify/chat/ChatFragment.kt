@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.saim.adapters.GenericListAdapter
+import com.saim.curify.R
 import com.saim.curify.databinding.FragmentChatBinding
 import com.saim.curify.databinding.ItemChatMessageBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -33,21 +34,23 @@ class ChatFragment : Fragment() {
             inflate = { parent -> ItemChatMessageBinding.inflate(LayoutInflater.from(parent.context), parent, false) },
             bind = { b, item ->
                 b.messageText.text = item.text
-                b.messageRole.text = item.role
+                // Set message role if the view exists
+                val roleView = b.root.findViewById<android.widget.TextView>(R.id.messageRole)
+                roleView?.text = item.role
             },
             diff = GenericListAdapter.simpleDiff(
                 areItemsTheSame = { o, n -> o.id == n.id },
                 areContentsTheSame = { o, n -> o == n }
             )
         )
-        binding.messages.layoutManager = LinearLayoutManager(requireContext())
-        binding.messages.adapter = adapter
+        binding.messagesRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.messagesRecyclerView.adapter = adapter
 
         binding.sendButton.setOnClickListener {
-            val prompt = binding.input.text?.toString()?.trim().orEmpty()
+            val prompt = binding.messageInput.text?.toString()?.trim().orEmpty()
             if (prompt.isNotEmpty()) {
                 viewModel.send(prompt)
-                binding.input.setText("")
+                binding.messageInput.setText("")
             }
         }
 

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".ui.payment.PaymentDetailsActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/spacing_medium">
+
+        <ImageView
+            android:id="@+id/paymentMethodIcon"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:contentDescription="@string/payment_method"
+            android:src="@drawable/jazzcash"
+            app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:gravity="center"
+            android:text="@string/enter_jazzcash_details"
+            android:textAppearance="@style/TextAppearance.Material3.HeadlineSmall"
+            android:textColor="@color/text_primary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/paymentMethodIcon" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/accountHolderNameLayout"
+            style="@style/Widget.Curify.TextInputLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_xlarge"
+            android:hint="@string/account_holder_name"
+            app:startIconDrawable="@drawable/ic_person"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/accountHolderNameInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:minHeight="@dimen/input_height" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/accountHolderNumberLayout"
+            style="@style/Widget.Curify.TextInputLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_medium"
+            android:hint="@string/account_holder_number"
+            app:startIconDrawable="@drawable/ic_phone"
+            app:layout_constraintEnd_toEndOf="@id/accountHolderNameLayout"
+            app:layout_constraintStart_toStartOf="@id/accountHolderNameLayout"
+            app:layout_constraintTop_toBottomOf="@id/accountHolderNameLayout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/accountHolderNumberInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:minHeight="@dimen/input_height" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/hintText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_tiny"
+            android:text="@string/phone_number_hint"
+            android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+            android:textColor="@color/text_hint"
+            app:layout_constraintStart_toStartOf="@id/accountHolderNumberLayout"
+            app:layout_constraintTop_toBottomOf="@id/accountHolderNumberLayout" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/addAccountButton"
+            style="@style/Widget.Curify.Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_xlarge"
+            android:layout_marginBottom="@dimen/spacing_xlarge"
+            android:text="@string/add_account"
+            app:layout_constraintEnd_toEndOf="@id/accountHolderNumberLayout"
+            app:layout_constraintStart_toStartOf="@id/accountHolderNumberLayout"
+            app:layout_constraintTop_toBottomOf="@id/hintText" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
+

@@ -31,7 +31,7 @@ class PaymentMethods : AppCompatActivity() {
         lifecycleScope.launch {
             viewModel.isSuccessfullySaved.collect{
                 it?.let {
-                    if(it==true)
+                    if(it)
                         Toast.makeText(this@PaymentMethods, "Account Added Successfully", Toast.LENGTH_SHORT).show()
                 }
             }
@@ -45,13 +45,13 @@ class PaymentMethods : AppCompatActivity() {
             }
         }
 
-      binding.jazzcashbtn.setOnClickListener{
+      binding.jazzcashCard.setOnClickListener{
     startActivity(Intent(this@PaymentMethods, JazzcashPaymentDetails::class.java))
           finish()
 
 
 }
-        binding.easypaisabtn.setOnClickListener{
+        binding.easypaisaCard.setOnClickListener{
     startActivity(Intent(this@PaymentMethods, EasyPaisaPaymentDetails::class.java))
             finish()
 

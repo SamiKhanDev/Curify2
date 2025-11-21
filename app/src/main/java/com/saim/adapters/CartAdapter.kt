@@ -10,7 +10,7 @@ import com.saim.curify.MyCart
 import com.saim.domain.entities.MyCartData
 import com.saim.curify.MyCartViewHolder
 import com.saim.curify.R
-import com.saim.curify.databinding.ItemAddedToCartBinding
+import com.saim.curify.databinding.ItemCartBinding
 import com.bumptech.glide.Glide
 
 private var count = 1
@@ -22,7 +22,7 @@ class CartAdapter(val items: List<Any>) : RecyclerView.Adapter<RecyclerView.View
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
        // if (viewType == 0) {
             val binding =
-                ItemAddedToCartBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+                ItemCartBinding.inflate(LayoutInflater.from(parent.context), parent, false)
             return MyCartViewHolder(binding)
         }
 
@@ -59,42 +59,41 @@ class CartAdapter(val items: List<Any>) : RecyclerView.Adapter<RecyclerView.View
 
         if (holder is MyCartViewHolder) {
             val mycart = items.get(position) as MyCartData
-            holder.binding.title.text = mycart.title
-           holder.binding.weight.text=mycart.weight
-price =mycart.price.toIntOrNull()!!
-            addprice =mycart.price.toIntOrNull()!!
-            holder.binding.plus.setOnClickListener {
-                if(count < mycart.quantity.toIntOrNull()!!) {
+            holder.binding.productTitle.text = mycart.title
+            holder.binding.weight.text = mycart.weight
+            price = mycart.price.toIntOrNull() ?: 0
+            addprice = mycart.price.toIntOrNull() ?: 0
+            holder.binding.quantityText.text = mycart.quantity
+            count = mycart.quantity.toIntOrNull() ?: 1
+            
+            holder.binding.increaseButton.setOnClickListener {
+                if(count < (mycart.quantity.toIntOrNull() ?: 0)) {
                     count++
                     price = price + addprice
-                   // total= price.toString()
-                    holder.binding.inputquantity.text = count.toString()
-                    holder.binding.price.setText(price.toString())
+                    holder.binding.quantityText.text = count.toString()
+                    holder.binding.price.text = price.toString()
                 }
             }
 
-            holder.binding.minus.setOnClickListener {
+            holder.binding.decreaseButton.setOnClickListener {
                 if (count > 1) {
                     count--
                     price = price - addprice
-                  //  total= price.toString()
-                    holder.binding.inputquantity.text = count.toString()
-                    holder.binding.price.setText(price.toString())
+                    holder.binding.quantityText.text = count.toString()
+                    holder.binding.price.text = price.toString()
                 }
-
             }
-//            if (medicine.status == "Out of stock")
-//                holder.binding.status.setTextColor(Color.RED)
-//            else
-          //      holder.binding.status.setTextColor(Color.GREEN)
+            
             holder.binding.price.text = mycart.price.toString()
+            holder.binding.currency.text = "PKR "
 
             Glide.with(holder.itemView.context)
                 .load(mycart.image)
                 .error(R.drawable.logo_curify)
                 .placeholder(R.drawable.logo_curify)
                 .into(holder.binding.productImage)
-            holder.binding.productImage2.setOnClickListener {
+            
+            holder.binding.deleteButton.setOnClickListener {
                 val context = holder.itemView.context
                 val builder = AlertDialog.Builder(context)
                 builder.setTitle("Select Action")

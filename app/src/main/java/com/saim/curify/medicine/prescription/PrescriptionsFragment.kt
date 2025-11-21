@@ -44,16 +44,16 @@ class PrescriptionsFragment: Fragment() {
                 }
             )
         )
-        binding.list.layoutManager = LinearLayoutManager(requireContext())
-        binding.list.adapter = adapter
+        binding.prescriptionsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.prescriptionsRecyclerView.adapter = adapter
 
         val uid = com.google.firebase.auth.FirebaseAuth.getInstance().currentUser?.uid ?: return
         viewModel.start(uid)
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.items.collect { list ->
                 adapter.submitList(list)
-                binding.empty.visibility = if (list.isEmpty()) View.VISIBLE else View.GONE
-                if (list.isNotEmpty()) binding.list.scrollToPosition(list.size - 1)
+                binding.emptyState.visibility = if (list.isEmpty()) View.VISIBLE else View.GONE
+                if (list.isNotEmpty()) binding.prescriptionsRecyclerView.scrollToPosition(list.size - 1)
             }
         }
     }

@@ -1,67 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".payment.AddedPaymentMethod">
 
-    <TextView
-        android:id="@+id/number"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text=""
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/name"
-        app:layout_constraintTop_toBottomOf="@+id/name" />
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/textView17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="73dp"
-        android:layout_marginEnd="45dp"
-        android:text="Your Payment Method Details"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="@string/payment_method"
+            app:titleTextColor="@color/text_primary" />
+    </com.google.android.material.appbar.AppBarLayout>
 
-    <TextView
-        android:id="@+id/method"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text=""
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/textView17"
-        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text=""
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/method"
-        app:layout_constraintTop_toBottomOf="@+id/method" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_medium">
 
-    <Button
-        android:id="@+id/changemethod"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:backgroundTint="#0D9AB6"
-        android:text="Change Account"
-        app:layout_constraintEnd_toEndOf="@+id/textView17"
-        app:layout_constraintStart_toStartOf="@+id/textView17"
-        app:layout_constraintTop_toBottomOf="@+id/number" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.Curify.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_large">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/spacing_large">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/account_holder_name"
+                        android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+                        android:textColor="@color/text_secondary" />
+
+                    <TextView
+                        android:id="@+id/name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_tiny"
+                        android:text="Name"
+                        android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+                        android:textColor="@color/text_primary" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="@dimen/spacing_medium"
+                        android:background="@color/divider" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/account_holder_number"
+                        android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+                        android:textColor="@color/text_secondary" />
+
+                    <TextView
+                        android:id="@+id/number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_tiny"
+                        android:text="Number"
+                        android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+                        android:textColor="@color/text_primary" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="@dimen/spacing_medium"
+                        android:background="@color/divider" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/payment_method"
+                        android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+                        android:textColor="@color/text_secondary" />
+
+                    <TextView
+                        android:id="@+id/method"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_tiny"
+                        android:text="Method"
+                        android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+                        android:textColor="@color/text_primary" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+

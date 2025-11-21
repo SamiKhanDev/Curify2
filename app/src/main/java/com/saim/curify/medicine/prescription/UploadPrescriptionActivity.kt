@@ -27,7 +27,9 @@ class UploadPrescriptionActivity: AppCompatActivity() {
         if (uri != null) {
             imageUri = uri
             Log.d("PrescriptionUpload", "Image picked uri=$uri")
-            Glide.with(this).load(uri).into(binding.preview)
+            Glide.with(this).load(uri).into(binding.previewImage)
+            binding.previewCard.visibility = android.view.View.VISIBLE
+            binding.placeholderText.visibility = android.view.View.GONE
         }
     }
 
@@ -51,19 +53,14 @@ class UploadPrescriptionActivity: AppCompatActivity() {
                 binding.toolbar.paddingRight,
                 binding.toolbar.paddingBottom
             )
-            binding.actions.setPadding(
-                binding.actions.paddingLeft,
-                binding.actions.paddingTop,
-                binding.actions.paddingRight,
-                binding.actions.paddingBottom + systemBars.bottom
-            )
+            // Note: No actions container in layout, padding handled by root layout
             insets
         }
 
-        binding.pick.setOnClickListener {
+        binding.chooseFromGalleryButton.setOnClickListener {
             pickImage.launch("image/*")
         }
-        binding.upload.setOnClickListener {
+        binding.uploadButton.setOnClickListener {
             val user = com.google.firebase.auth.FirebaseAuth.getInstance().currentUser
             if (user == null) {
                 Log.e("PrescriptionUpload", "No authenticated user; aborting upload")
@@ -71,7 +68,7 @@ class UploadPrescriptionActivity: AppCompatActivity() {
                 return@setOnClickListener
             }
             val uid = user.uid
-            val note = binding.note.text?.toString().orEmpty()
+            val note = binding.noteInput.text?.toString().orEmpty()
             val path = imageUri?.toString() ?: return@setOnClickListener
             Log.d("PrescriptionUpload", "Upload clicked uid=${uid.isNotEmpty()} noteLength=${note.length} uri=$path")
             try {
@@ -80,8 +77,8 @@ class UploadPrescriptionActivity: AppCompatActivity() {
             } catch (t: Throwable) {
                 Log.w("PrescriptionUpload", "Could not resolve MIME type: ${t.message}")
             }
-            binding.upload.isEnabled = false
-            binding.upload.text = "Uploading..."
+            binding.uploadButton.isEnabled = false
+            binding.uploadButton.text = "Uploading..."
             vm.uploadAndSave(uid, path, note)
         }
 
@@ -98,8 +95,8 @@ class UploadPrescriptionActivity: AppCompatActivity() {
             vm.error.collect { err ->
                 err?.let {
                     Log.e("PrescriptionUpload", "Error: $it")
-                    binding.upload.isEnabled = true
-                    binding.upload.text = "Upload"
+                    binding.uploadButton.isEnabled = true
+                    binding.uploadButton.text = "Upload"
                     Toast.makeText(this@UploadPrescriptionActivity, it, Toast.LENGTH_SHORT).show()
                 }
             }

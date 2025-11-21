@@ -1,15 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- App Name -->
     <string name="app_name">Curify</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <!-- Cloudinary config: set these in local project (do not commit real values) -->
-<!--    <string name="cloudinary_cloud_name">your_cloud_name</string>-->
-<!--    <string name="cloudinary_unsigned_preset">your_unsigned_preset</string>-->
-
-
+    
+    <!-- Authentication -->
+    <string name="login">Login</string>
+    <string name="signup">Sign Up</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="name">Name</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="enter_email">Enter your email</string>
+    <string name="enter_password">Enter your password</string>
+    <string name="enter_name">Enter your name</string>
+    <string name="dont_have_account">Don\'t have an account?</string>
+    <string name="already_have_account">Already have an account?</string>
+    <string name="terms_and_conditions">I agree to the Curify Terms of Service and Privacy Policy</string>
+    <string name="otp_verification">OTP Verification</string>
+    <string name="enter_otp">Enter OTP</string>
+    <string name="verify">Verify</string>
+    <string name="resend_otp">Resend OTP</string>
+    <string name="otp_sent_to">OTP sent to %1$s</string>
+    
+    <!-- Home -->
+    <string name="greeting">Hi, %1$s</string>
+    <string name="search_medicines">Search medicines</string>
+    <string name="popular_medicines">Popular Medicines</string>
+    <string name="see_all">See All</string>
+    <string name="categories">Categories</string>
+    <string name="recommended">Recommended</string>
+    <string name="buy_medicine">Buy Medicine</string>
+    
+    <!-- Medicine -->
+    <string name="medicine">Medicine</string>
+    <string name="medicine_details">Medicine Details</string>
+    <string name="description">Description</string>
+    <string name="price">Price</string>
+    <string name="quantity">Quantity</string>
+    <string name="add_to_cart">Add to Cart</string>
+    <string name="buy_now">Buy Now</string>
+    <string name="in_stock">In Stock</string>
+    <string name="out_of_stock">Out of Stock</string>
+    <string name="weight">Weight</string>
+    <string name="type">Type</string>
+    
+    <!-- Cart & Checkout -->
+    <string name="cart">Cart</string>
+    <string name="my_cart">My Cart</string>
+    <string name="checkout">Checkout</string>
+    <string name="subtotal">Subtotal</string>
+    <string name="taxes">Taxes</string>
+    <string name="total">Total</string>
+    <string name="payment_method">Payment Method</string>
+    <string name="change">Change</string>
+    <string name="change_payment_method">Change Payment Method</string>
+    <string name="add_payment_method">Add Payment Method</string>
+    <string name="select_payment_method">Select Payment Method</string>
+    <string name="place_order">Place Order</string>
+    <string name="order_summary">Order Summary</string>
+    
+    <!-- Payment Methods -->
+    <string name="jazzcash">JazzCash</string>
+    <string name="easypaisa">EasyPaisa</string>
+    <string name="card">Card</string>
+    <string name="cod">Cash on Delivery</string>
+    <string name="enter_jazzcash_details">Enter your JazzCash Details</string>
+    <string name="enter_easypaisa_details">Enter your EasyPaisa Details</string>
+    <string name="account_holder_name">Account Holder Name</string>
+    <string name="account_holder_number">Account Holder Number</string>
+    <string name="add_account">Add Account</string>
+    <string name="change_account">Change Account</string>
+    <string name="phone_number_hint">e.g 92XXXXXXXXXX</string>
+    
+    <!-- Doctors -->
+    <string name="doctors">Doctors</string>
+    <string name="search_doctors">Search doctors</string>
+    <string name="doctor_profile">Doctor Profile</string>
+    <string name="specialization">Specialization</string>
+    <string name="hospital">Hospital</string>
+    <string name="consultation_fee">Consultation Fee</string>
+    <string name="available">Available</string>
+    <string name="unavailable">Unavailable</string>
+    <string name="book_appointment">Book Appointment</string>
+    <string name="select_time_slot">Select Time Slot</string>
+    <string name="appointments">Appointments</string>
+    
+    <!-- Chat -->
+    <string name="chat">Chat</string>
+    <string name="type_message">Type a message...</string>
+    <string name="send">Send</string>
+    
+    <!-- Prescription -->
+    <string name="prescriptions">Prescriptions</string>
+    <string name="my_prescriptions">My Prescriptions</string>
+    <string name="upload_prescription">Upload Prescription</string>
+    <string name="pick_image">Pick Image</string>
+    <string name="take_photo">Take Photo</string>
+    <string name="choose_from_gallery">Choose from Gallery</string>
+    <string name="upload">Upload</string>
+    <string name="add_note">Add note (optional)</string>
+    <string name="prescription_preview">Prescription Preview</string>
+    <string name="status">Status</string>
+    <string name="pending">Pending</string>
+    <string name="approved">Approved</string>
+    <string name="rejected">Rejected</string>
+    
+    <!-- Profile -->
+    <string name="profile">Profile</string>
+    <string name="logout">Logout</string>
+    <string name="payment_methods">Payment Methods</string>
+    
+    <!-- Admin -->
+    <string name="admin">Admin</string>
+    <string name="manage_medicine">Manage Medicine</string>
+    <string name="manage_doctors">Manage Doctors</string>
+    <string name="manage_orders">Manage Orders</string>
+    <string name="add_medicine">Add Medicine</string>
+    <string name="update_medicine">Update Medicine</string>
+    <string name="delete_medicine">Delete Medicine</string>
+    <string name="medicine_name">Medicine Name</string>
+    <string name="medicine_weight">Medicine Weight</string>
+    <string name="medicine_description">Medicine Description</string>
+    <string name="medicine_price">Medicine Price</string>
+    <string name="medicine_quantity">Medicine Quantity</string>
+    <string name="medicine_type">Medicine Type</string>
+    <string name="tablet">Tablet</string>
+    <string name="syrup">Syrup</string>
+    <string name="capsule">Capsule</string>
+    <string name="injection">Injection</string>
+    
+    <!-- Common -->
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+    <string name="back">Back</string>
+    <string name="next">Next</string>
+    <string name="continue_text">Continue</string>
+    <string name="loading">Loading…</string>
+    <string name="error">Error</string>
+    <string name="retry">Retry</string>
+    <string name="no_items">No items available</string>
+    <string name="empty_cart">Your cart is empty</string>
+    
+    <!-- Accessibility -->
+    <string name="content_description_logo">Curify Logo</string>
+    <string name="content_description_product_image">Product Image</string>
+    <string name="content_description_doctor_photo">Doctor Photo</string>
+    <string name="content_description_add_to_cart">Add to Cart</string>
+    <string name="content_description_remove_from_cart">Remove from Cart</string>
+    <string name="content_description_increase_quantity">Increase Quantity</string>
+    <string name="content_description_decrease_quantity">Decrease Quantity</string>
+    <string name="content_description_search">Search</string>
+    <string name="content_description_back">Back</string>
+    
+    <!-- Cloudinary (keep existing) -->
     <string name="cloudinary_cloud_name">dhxdgiuxt</string>
     <string name="cloudinary_unsigned_preset">ml_default</string>
-
-
-    <string name="chat">Chat</string>
 </resources>

@@ -1,61 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".payment.PaymentDetailActivity">
 
-    <ImageView
-        android:id="@+id/pymticon"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginStart="105dp"
-        android:layout_marginEnd="106dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/logo_curify"
-        tools:layout_editor_absoluteY="53dp" />
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/number"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="55dp"
-        android:text="TextView"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/name"
-        app:layout_constraintTop_toBottomOf="@+id/name" />
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="@string/payment_method"
+            app:titleTextColor="@color/text_primary" />
+    </com.google.android.material.appbar.AppBarLayout>
 
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="65dp"
-        android:layout_marginTop="91dp"
-        android:text="TextView"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pymticon" />
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-    <Button
-        android:id="@+id/changepymtbtn"
-        android:layout_width="250dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="81dp"
-        android:backgroundTint="#199A8E"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_medium">
 
-        android:text="Change"
-        android:textColorLink="#199A8E"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/number"
-        app:strokeColor="#199A8E" />
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.Curify.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_large">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/spacing_large">
+
+                    <ImageView
+                        android:id="@+id/pymticon"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_gravity="center_horizontal"
+                        android:contentDescription="@string/payment_method"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/jazzcash" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/spacing_medium"
+                        android:text="@string/account_holder_name"
+                        android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+                        android:textColor="@color/text_secondary" />
+
+                    <TextView
+                        android:id="@+id/name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/spacing_tiny"
+                        android:text="Name"
+                        android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+                        android:textColor="@color/text_primary" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="@dimen/spacing_medium"
+                        android:background="@color/divider" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="@string/account_holder_number"
+                        android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+                        android:textColor="@color/text_secondary" />
+
+                    <TextView
+                        android:id="@+id/number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/spacing_tiny"
+                        android:text="Number"
+                        android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+                        android:textColor="@color/text_primary" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/changepymtbtn"
+                style="@style/Widget.Curify.Button.Outlined"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_large"
+                android:text="@string/change_payment_method" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
