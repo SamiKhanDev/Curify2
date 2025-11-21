@@ -56,6 +56,11 @@ class HomeFragment : Fragment() {
             findNavController().navigate(R.id.item_medicine)
         }
 
+        // Buy Medicine FAB click listener
+        binding.buyMedicineFab.setOnClickListener {
+            findNavController().navigate(R.id.item_medicine)
+        }
+
         adapter = GenericListAdapter(
             inflate = { parent -> ItemMedicineBinding.inflate(LayoutInflater.from(parent.context), parent, false) },
             bind = { b, medicine: Drugs ->

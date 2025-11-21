@@ -3,7 +3,10 @@ package com.saim.curify.payment
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import com.saim.curify.R
 import com.saim.curify.databinding.ActivityPaymentMethodsBinding
@@ -23,8 +26,17 @@ class PaymentMethods : AppCompatActivity() {
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         binding= ActivityPaymentMethodsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        
+        // Apply system window insets to avoid status bar overlap
+        ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            val padding = resources.getDimensionPixelSize(com.saim.curify.R.dimen.spacing_medium)
+            v.setPadding(padding, padding + systemBars.top, padding, padding)
+            insets
+        }
 
         viewModel = PaymentViewModel()
 

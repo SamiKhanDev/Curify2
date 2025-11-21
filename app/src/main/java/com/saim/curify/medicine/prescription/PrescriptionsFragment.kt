@@ -34,8 +34,20 @@ class PrescriptionsFragment: Fragment() {
             inflate = { parent -> ItemPrescriptionBinding.inflate(LayoutInflater.from(parent.context), parent, false) },
             bind = { binding, item ->
                 binding.note.text = item.note
-                binding.status.text = item.status
-                com.bumptech.glide.Glide.with(binding.root.context).load(item.imageUrl).into(binding.thumbnail)
+                binding.status.text = item.status.replaceFirstChar { 
+                    if (it.isLowerCase()) it.titlecase(java.util.Locale.getDefault()) else it.toString() 
+                }
+                
+                // Load image with error handling
+                if (!item.imageUrl.isNullOrBlank()) {
+                    com.bumptech.glide.Glide.with(binding.root.context)
+                        .load(item.imageUrl)
+                        .error(com.saim.curify.R.drawable.logo_curify)
+                        .placeholder(com.saim.curify.R.drawable.logo_curify)
+                        .into(binding.thumbnail)
+                } else {
+                    binding.thumbnail.setImageResource(com.saim.curify.R.drawable.logo_curify)
+                }
             },
             diff = GenericListAdapter.simpleDiff(
                 areItemsTheSame = { o, n -> o.id == n.id },

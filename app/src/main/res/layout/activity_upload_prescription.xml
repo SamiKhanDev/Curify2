@@ -104,7 +104,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_medium"
                 android:text="@string/upload"
-                android:enabled="false" />
+                android:enabled="true" />
 
             <!-- TODO: Integrate Google ML Kit for OCR -->
             <!-- TODO: Add image cropping functionality -->

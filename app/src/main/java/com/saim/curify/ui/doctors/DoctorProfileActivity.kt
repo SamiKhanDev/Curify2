@@ -1,5 +1,6 @@
 package com.saim.curify.ui.doctors
 
+import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.os.Bundle
 import android.widget.Toast
@@ -76,6 +77,7 @@ class DoctorProfileActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun setupTimeSlots() {
         // Generate time slots from doctor's start and end time
         val timeSlots = generateTimeSlots(doctor.startTime, doctor.endTime)

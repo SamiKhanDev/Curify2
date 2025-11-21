@@ -128,6 +128,10 @@
             android:name=".ui.prescription.UploadPrescriptionActivity"
             android:exported="false"
             android:theme="@style/Theme.Curify" />
+        <activity
+            android:name="com.saim.curify.medicine.prescription.UploadPrescriptionActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Curify" />
 
         <!-- Admin Activity -->
         <activity
@@ -150,6 +154,17 @@
             android:name="com.saim.curify.splash.start_screen"
             android:exported="false"
             android:theme="@style/Theme.Curify" />
+
+        <!-- FileProvider for sharing files (camera photos) -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
 
     </application>
 

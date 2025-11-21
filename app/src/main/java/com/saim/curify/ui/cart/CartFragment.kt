@@ -1,10 +1,15 @@
 package com.saim.curify.ui.cart
 
 import android.content.Intent
+import android.content.res.Resources
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowInsets
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -34,11 +39,55 @@ class CartFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         
+        // Get status bar height directly
+        val statusBarHeight = getStatusBarHeight()
+        val padding = resources.getDimensionPixelSize(com.saim.curify.R.dimen.spacing_medium)
+        
+        // Apply padding to NestedScrollView immediately to push content below status bar
+        binding.nestedScrollView.setPadding(
+            padding,
+            padding + statusBarHeight,
+            padding,
+            padding
+        )
+        
+        // Also set up insets listener as backup
+        ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            val currentPadding = resources.getDimensionPixelSize(com.saim.curify.R.dimen.spacing_medium)
+            
+            // Update padding if insets are available
+            binding.nestedScrollView.setPadding(
+                currentPadding,
+                currentPadding + systemBars.top,
+                currentPadding,
+                currentPadding
+            )
+            
+            insets
+        }
+        
+        // Request insets to be applied
+        ViewCompat.requestApplyInsets(binding.root)
+        
         setupRecyclerView()
         setupClickListeners()
         observeViewModel()
         
         viewModel.loadCart()
+    }
+    
+    private fun getStatusBarHeight(): Int {
+        var result = 0
+        val resourceId = resources.getIdentifier("status_bar_height", "dimen", "android")
+        if (resourceId > 0) {
+            result = resources.getDimensionPixelSize(resourceId)
+        }
+        // Fallback: use a reasonable default if resource not found
+        if (result == 0) {
+            result = (24 * resources.displayMetrics.density).toInt() // 24dp default
+        }
+        return result
     }
     
     private fun setupRecyclerView() {
